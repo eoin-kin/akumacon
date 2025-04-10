@@ -1,16 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
-import { BrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.css";
+import Home from "./Pages/Home.jsx";
+import {About} from "./Pages/About.jsx";
 
 //Configure router to run when pages finished
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Home />,
+    },
+    { path: "/about", element: <About /> },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
+        <RouterProvider router={router} />
     </React.StrictMode>
 );

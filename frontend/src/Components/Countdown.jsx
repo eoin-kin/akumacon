@@ -23,7 +23,7 @@ export function Countdown() {
 
         return () => clearInterval(timer);
     }, []);
-
+// Maker timer resize for mobile
     return (
         <section className="bg-secondary-custom text-center py-5">
             <div className="container">
