@@ -1,25 +1,31 @@
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-
+import "./Navigation.css"
 export function Navigation() {
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar expand="lg" className="custom-navbar">
             <Container>
-                <Navbar.Brand href="/">Akumacon</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
+                <Navbar.Brand href="/" className="text-light">Akumacon</Navbar.Brand>
+                {/*
+                Find correct utility classes to improve accessibility on mobile
+                by making the badge lighter for contrast
+
+                Make dropdown on mobile white with black text
+                */}
+                <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                <Navbar.Collapse id="basic-navbar-nav" >
                     <Nav className="ms-auto">
-                        <NavLink to="/" end className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}>
+                        <NavLink to="/" end className={({ isActive }) => 'nav-link text-light' + (isActive ? ' active' : '')}>
                             Home
                         </NavLink>
-                        <NavLink to="/about" className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}>
+                        <NavLink to="/about" className={({ isActive }) => 'nav-link text-light' + (isActive ? ' active' : '')}>
                             About
                         </NavLink>
-                        <NavLink to="/services" className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}>
+                        <NavLink to="/services" className={({ isActive }) => 'nav-link text-light' + (isActive ? ' active' : '')}>
                             Services
                         </NavLink>
-                        <NavLink to="/contact" className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}>
+                        <NavLink to="/contact" className={({ isActive }) => 'nav-link text-light' + (isActive ? ' active' : '')}>
                             Contact
                         </NavLink>
                     </Nav>
