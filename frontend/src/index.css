@@ -5,7 +5,7 @@
   --secondary: #7C1232;
   --tertiary: #7C1232;
   --highlight: #E9ECEB;
-  --lowlight: #FAFAFA;
+  --lowlight: #a09f9f;
   --shadow-color: rgba(0, 0, 0, 0.54);
   --cta: #C0582E;
   --dark: #3D2F26;
@@ -22,5 +22,5 @@
 .bg-highlight { background-color: var(--highlight); }
 .text-primary-custom { color: var(--primary); }
 .text-secondary-custom { color: var(--secondary);
-.text-highlight { color: var(--highlight); }
+.text-highlight { color: var(--highlight); }}
 

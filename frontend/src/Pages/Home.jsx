@@ -53,6 +53,7 @@ export function Home() {
                             borderRadius: '1rem',
                             fontSize: '1.5rem',
                         }}
+                        href={"/ticketselection"}
                     >
                         GET TICKETS
                     </Button>

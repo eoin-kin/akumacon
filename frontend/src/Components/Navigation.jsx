@@ -6,7 +6,7 @@ export function Navigation() {
     return (
         <Navbar expand="lg" className="custom-navbar">
             <Container>
-                <Navbar.Brand href="/" className="text-light">Akumacon</Navbar.Brand>
+                <Navbar.Brand href="/" className="text-light">Akumakon</Navbar.Brand>
                 {/*
                 Find correct utility classes to improve accessibility on mobile
                 by making the badge lighter for contrast
