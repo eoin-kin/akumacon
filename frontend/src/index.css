@@ -24,3 +24,15 @@
 .text-secondary-custom { color: var(--secondary);
 .text-highlight { color: var(--highlight); }}
 
+.price-pill {
+  border-radius: 50rem;
+}
+
+@media (max-width: 576px) {
+  .price-pill {
+    border-radius: 0 !important;
+    opacity: 100% !important;
+    width: 100% !important;
+  }
+}
+

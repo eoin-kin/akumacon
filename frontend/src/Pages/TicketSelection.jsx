@@ -12,7 +12,17 @@ export function TicketSelection() {
         studentWeekend: 0
     });
     const [totalPrice, setTotalPrice] = useState(0);
-
+    const glassStyle = {
+        backgroundColor: "rgba(255, 255, 255, 0.65)",
+        backdropFilter: "blur(8px)",
+        WebkitBackdropFilter: "blur(8px)",
+        borderRadius: "8px",
+        padding: "10px",
+        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+        "@media (max-width: 576px)":{
+            borderRadius: "0 !important"
+        }
+    };
     const TICKET_PRICES = {
         over18Weekend: 25,
         over18Day: 15,
@@ -63,15 +73,15 @@ export function TicketSelection() {
         <>
             <Navigation />
             <br />
-            <Container className="px-4">
-                <div className="shadow-lg p-4 rounded-5" style={{ backgroundColor: "var(--cta)" }}>
+            <Container className="px-4" >
+                <div className="shadow-lg p-4 rounded-5" style={{ backgroundImage: "url('/skyline.png')",backgroundSize: "cover", backgroundPosition: "center" }}>
                     <h1 className="mb-4" style={{ color: "var(--highlight)" }}>Order Tickets</h1>
 
                     <Form validated={validated} onSubmit={handleSubmit}>
                         <Container>
                             {/* Ticket Selection Rows */}
                             <Row className="mb-3 align-items-center">
-                                <Col md={6}><h5>Over 18s Weekend Pass</h5></Col>
+                                <Col md={6}><h5 style={{color:"var(--highlight)"}}>Over 18s Weekend Pass</h5></Col>
                                 <Col md={3}>
                                     <Form.Select
                                         value={ticketCounts.over18Weekend}
@@ -84,12 +94,12 @@ export function TicketSelection() {
                                     </Form.Select>
                                 </Col>
                                 <Col md={3}>
-                                    <span className="price-display">€{TICKET_PRICES.over18Weekend} each</span>
+                                    <span className="price-display price-pill fw-bold px-3" style={glassStyle}>€{TICKET_PRICES.over18Weekend}</span>
                                 </Col>
                             </Row>
 
                             <Row className="mb-3 align-items-center">
-                                <Col md={6}><h5>Over 18s Day Pass</h5></Col>
+                                <Col md={6}><h5 style={{color:"var(--highlight)"}}>Over 18s Day Pass</h5></Col>
                                 <Col md={3}>
                                     <Form.Select
                                         value={ticketCounts.over18Day}
@@ -102,12 +112,12 @@ export function TicketSelection() {
                                     </Form.Select>
                                 </Col>
                                 <Col md={3}>
-                                    <span className="price-display">€{TICKET_PRICES.over18Day} each</span>
+                                    <span className="price-display price-pill fw-bold px-3" style={glassStyle}>€{TICKET_PRICES.over18Day}</span>
                                 </Col>
                             </Row>
 
                             <Row className="mb-3 align-items-center">
-                                <Col md={6}><h5>Under 18s Weekend Pass</h5></Col>
+                                <Col md={6}><h5 style={{color:"var(--highlight)"}}>Under 18s Weekend Pass</h5></Col>
                                 <Col md={3}>
                                     <Form.Select
                                         value={ticketCounts.under18Weekend}
@@ -120,12 +130,12 @@ export function TicketSelection() {
                                     </Form.Select>
                                 </Col>
                                 <Col md={3}>
-                                    <span className="price-display">€{TICKET_PRICES.under18Weekend} each</span>
+                                    <span className="price-display price-pill fw-bold px-3" style={glassStyle}>€{TICKET_PRICES.under18Weekend}</span>
                                 </Col>
                             </Row>
 
                             <Row className="mb-3 align-items-center">
-                                <Col md={6}><h5>Under 18s Day Pass</h5></Col>
+                                <Col md={6}><h5 style={{color:"var(--highlight)"}}>Under 18s Day Pass</h5></Col>
                                 <Col md={3}>
                                     <Form.Select
                                         value={ticketCounts.under18Day}
@@ -138,12 +148,12 @@ export function TicketSelection() {
                                     </Form.Select>
                                 </Col>
                                 <Col md={3}>
-                                    <span className="price-display">€{TICKET_PRICES.under18Day} each</span>
+                                    <span className="price-display price-pill fw-bold px-3" style={glassStyle}>€{TICKET_PRICES.under18Day}</span>
                                 </Col>
                             </Row>
 
                             <Row className="mb-4 align-items-center">
-                                <Col md={6}><h5>Student Weekend Pass (Student ID Required)</h5></Col>
+                                <Col md={6}><h5 style={{color:"var(--highlight)"}}>Student Weekend Pass (Student ID Required)</h5></Col>
                                 <Col md={3}>
                                     <Form.Select
                                         value={ticketCounts.studentWeekend}
@@ -156,7 +166,7 @@ export function TicketSelection() {
                                     </Form.Select>
                                 </Col>
                                 <Col md={3}>
-                                    <span className="price-display">€{TICKET_PRICES.studentWeekend} each</span>
+                                    <span className="price-display price-pill fw-bold px-3" style={glassStyle}>€{TICKET_PRICES.studentWeekend}</span>
                                 </Col>
                             </Row>
 
