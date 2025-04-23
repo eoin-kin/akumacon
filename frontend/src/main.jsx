@@ -6,6 +6,7 @@ import "./index.css";
 import {Home} from "./Pages/Home.jsx";
 import {About} from "./Pages/About.jsx";
 import {TicketSelection} from "./Pages/TicketSelection.jsx";
+import {Guests} from "./Pages/Guests.jsx";
 
 //Configure router to run when pages finished
 
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
     },
     { path: "/about", element: <About /> },
     { path: "/ticketselection", element: <TicketSelection /> },
+    {path: "/guests", element: <Guests /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

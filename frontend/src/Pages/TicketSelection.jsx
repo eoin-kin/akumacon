@@ -75,7 +75,7 @@ export function TicketSelection() {
             <br />
             <Container className="px-4" >
                 <div className="shadow-lg p-4 rounded-5" style={{ backgroundImage: "url('/skyline.png')",backgroundSize: "cover", backgroundPosition: "center" }}>
-                    <h1 className="mb-4" style={{ color: "var(--highlight)" }}>Order Tickets</h1>
+                    <h1 className="mb-4 fw-bolder text-decoration-underline" style={{ color: "var(--highlight)" }}>Order Tickets</h1>
 
                     <Form validated={validated} onSubmit={handleSubmit}>
                         <Container>

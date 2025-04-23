@@ -36,3 +36,14 @@
   }
 }
 
+.text-shadow {
+  color: white;
+  font-weight: bold;
+  text-shadow:
+          1px 1px 0 #000,    /* dark border */
+          -1px -1px 0 #000,
+          1px -1px 0 #000,
+          -1px 1px 0 #000,
+          2px 2px 5px rgba(0, 0, 0, 0.8); /* outer glow */
+  -webkit-text-stroke: 0.5px black; /* fallback for extra sharpness */
+}

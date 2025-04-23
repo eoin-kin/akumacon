@@ -22,8 +22,8 @@ export function Navigation() {
                         <NavLink to="/about" className={({ isActive }) => 'nav-link text-light' + (isActive ? ' active' : '')}>
                             About
                         </NavLink>
-                        <NavLink to="/services" className={({ isActive }) => 'nav-link text-light' + (isActive ? ' active' : '')}>
-                            Services
+                        <NavLink to="/guests" className={({ isActive }) => 'nav-link text-light' + (isActive ? ' active' : '')}>
+                            Guests
                         </NavLink>
                         <NavLink to="/contact" className={({ isActive }) => 'nav-link text-light' + (isActive ? ' active' : '')}>
                             Contact
