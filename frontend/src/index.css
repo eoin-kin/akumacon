@@ -1,13 +1,13 @@
 /* VERY IMPORTANT*/
 /* Changing the below colours will change them site wide. Do so at your own caution */
 :root {
-  --primary: #6843B6;
-  --secondary: #7C1232;
-  --tertiary: #7C1232;
+  --primary: #3b1a69;
+  --secondary: #e7634c;
+  --tertiary: #a9e29e;
   --highlight: #E9ECEB;
-  --lowlight: #a09f9f;
+  --lowlight: #eb9971;
   --shadow-color: rgba(0, 0, 0, 0.54);
-  --cta: #C0582E;
+  --cta: #66cbe7;
   --dark: #3D2F26;
   --light: #E9ECEB;
 

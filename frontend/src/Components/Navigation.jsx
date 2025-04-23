@@ -1,12 +1,12 @@
 import React from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import {Navbar, Nav, Container,} from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import "./Navigation.css"
 export function Navigation() {
     return (
         <Navbar expand="lg" className="custom-navbar">
             <Container>
-                <Navbar.Brand href="/" className="text-light">Akumakon</Navbar.Brand>
+                <Navbar.Brand href="/" className="text-light"><img src="/Akumacon.png" alt="Akumacon" style={{width:"10rem"}}/> </Navbar.Brand>
                 {/*
                 Find correct utility classes to improve accessibility on mobile
                 by making the badge lighter for contrast
