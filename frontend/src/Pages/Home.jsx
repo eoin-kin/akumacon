@@ -10,8 +10,7 @@ export function Home() {
       <div
         className="d-flex align-items-center justify-content-center text-center"
         style={{
-          background:
-            "linear-gradient(180deg, var(--primary) 0%,var(--primary) 30%, var(--secondary) 100%)",
+          background: "var(--primary)",
           paddingTop: "1rem",
         }}
       >
@@ -28,24 +27,11 @@ export function Home() {
         >
           <Button
             size="sm"
-            className="fw-bold border-0 px-5 py-1 gla"
-            style={{
-              color: "var(--primary)",
-              backgroundColor: "var(--highlight)",
-              borderRadius: "calc(0.5rem + 0.3vw)",
-              fontSize: "clamp(1rem, 1.5vw, 1.5rem)",
-              padding: "clamp(0.5rem, 0.8vw, 1rem) clamp(1rem, 1vw, 2rem)",
-              position: "absolute",
-              bottom: "clamp(0.5rem, 2vw, 2rem)",
-              right: "clamp(1rem, 2vw, 2rem)",
-              width: "30vw",
-              textAlign: "center",
-              minWidth: "120px", // To prevent it from becoming too small on mobile
-              maxWidth: "300px",
-            }}
-            href={"/ticketselection"}
+            className="fw-bold border-0 px-5 py-1 gla responsive-ticket-button"
+            href="/ticketselection"
           >
-            GET TICKETS
+            <span className="d-none d-sm-inline">GET TICKETS</span>
+            <span className="d-sm-none">Tickets</span>
           </Button>
         </div>
       </div>
