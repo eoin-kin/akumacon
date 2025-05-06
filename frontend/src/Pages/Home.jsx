@@ -1,6 +1,5 @@
 import React from "react";
 import Navigation from "../Components/Navigation.jsx";
-import LinkImages from "../Components/LinkImages.jsx";
 import { Countdown } from "../Components/Countdown.jsx";
 import { Button } from "react-bootstrap";
 
