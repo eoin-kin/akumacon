@@ -8,8 +8,7 @@ import { TicketSelection } from "./Pages/TicketSelection.jsx";
 import InfoPage from "./Pages/Info.jsx";
 import Applications from "./Pages/Applications.jsx";
 import Gallery from "./Pages/Gallery.jsx";
-
-//Configure router to run when pages finished
+import More from "./Pages/More.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +19,7 @@ const router = createBrowserRouter([
   { path: "/ticketselection", element: <TicketSelection /> },
   { path: "/applications", element: <Applications /> },
   { path: "/gallery", element: <Gallery /> },
+  { path: "/more", element: <More /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

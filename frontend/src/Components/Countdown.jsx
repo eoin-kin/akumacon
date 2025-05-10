@@ -43,9 +43,12 @@ export function Countdown() {
   return (
     <section className="bg-secondary-custom text-center py-5">
       <div className="container">
-        <h2 className="fs-2 mb-4" style={{ color: "var(--highlight)" }}>
+        <h2 className="fs-2 fw-bold mb-4" style={{ color: "var(--highlight)" }}>
           COUNTDOWN TO AKUMAKON 2026
         </h2>
+        <p className="fs-2 mb-4 fw-bold" style={{ color: "var(--highlight)" }}>
+          March 20, 2026
+        </p>
         <div className="d-flex justify-content-between mx-5 flex-wrap gap-4">
           <div>
             <span
