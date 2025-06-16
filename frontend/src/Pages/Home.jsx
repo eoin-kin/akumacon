@@ -3,8 +3,33 @@ import Navigation from "../Components/Navigation.jsx";
 import { Countdown } from "../Components/Countdown.jsx";
 import { Button } from "react-bootstrap";
 import InfoSlider from "../Components/InfoSlider.jsx";
+import { useHomeContent } from "../hooks/useContent.js";
 
 export function Home() {
+  const { content, loading, error } = useHomeContent();
+
+  if (loading) {
+    return (
+      <>
+        <Navigation />
+        <div
+          className="d-flex justify-content-center align-items-center"
+          style={{ height: "50vh" }}
+        >
+          <div>Loading...</div>
+        </div>
+      </>
+    );
+  }
+
+  if (error) {
+    console.error("Content loading error:", error);
+  }
+
+  // Use content from CMS or fallback to defaults
+  const heroContent = content?.hero || {};
+  const aboutContent = content?.about || {};
+
   return (
     <>
       <Navigation />
@@ -17,22 +42,28 @@ export function Home() {
       >
         <div
           style={{
-            backgroundImage: "url('/banner.jpg')",
+            backgroundImage: `url('${
+              heroContent.banner_image || "/banner.jpg"
+            }')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             width: "100vw",
             height: "0",
-            paddingBottom: "33.33%", // This creates a 16:9 aspect ratio (adjust as needed)
+            paddingBottom: "33.33%",
             position: "relative",
           }}
         >
           <Button
             size="sm"
             className="fw-bold border-0 px-5 py-1 gla responsive-ticket-button"
-            href="/ticketselection"
+            href={heroContent.ticket_link || "/ticketselection"}
           >
-            <span className="d-none d-sm-inline">GET TICKETS</span>
-            <span className="d-sm-none">Tickets</span>
+            <span className="d-none d-sm-inline">
+              {heroContent.ticket_text_desktop || "GET TICKETS"}
+            </span>
+            <span className="d-sm-none">
+              {heroContent.ticket_text_mobile || "Tickets"}
+            </span>
           </Button>
         </div>
       </div>
@@ -47,8 +78,8 @@ export function Home() {
         <div className="row">
           <div className="col-12 col-md-6 d-flex align-items-center justify-content-center p-1 rounded-3 bg-transparent">
             <img
-              src="./Akumacon.png"
-              alt="Event"
+              src={aboutContent.logo_image || "./Akumacon.png"}
+              alt={aboutContent.logo_alt || "Event"}
               className="img-fluid rounded-3 shadow-lg"
               style={{
                 maxHeight: "80vh",
@@ -65,23 +96,14 @@ export function Home() {
               }}
               className="fw-bold p-3 rounded-3 shadow-lg"
             >
-              Akumakon is one of the longest running Anime and Manga conventions
-              in Ireland. Held over a weekend each year, and run by the
-              University of Galway Anime and Manga Society, it is a student-led
-              non-profit convention with, with all profits going to charity.
-              Over two thousand people attended Akumakon 2024, making the
-              convention one of the largest of its kind in Ireland. Ran every
-              year (except 2021 and 2022, those don't count!) since 2010,
-              Akumakon 2025 will be our twelvth event, and we're hoping to make
-              it bigger and better than ever. Find out more information about
-              Akumakon, our committee, and what we do, on our InfoS page.
+              {aboutContent.description || "Default description text..."}
             </p>
             <Button
               size="lg"
-              className="fw-bold border-0 px-5 py-1 gla w-50 "
-              href="/info"
+              className="fw-bold border-0 px-5 py-1 gla w-50"
+              href={aboutContent.info_button_link || "/info"}
             >
-              Info
+              {aboutContent.info_button_text || "Info"}
             </Button>
           </div>
         </div>
