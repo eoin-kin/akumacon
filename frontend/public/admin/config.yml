@@ -1,0 +1,83 @@
+backend:
+  name: github
+  repo: your-username/your-repo-name # Replace with your actual repo
+  branch: main # or master
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "homepage"
+    label: "Home Page"
+    files:
+      - name: "home"
+        label: "Home Page Content"
+        file: "src/content/home.json"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {
+                  label: "Banner Image",
+                  name: "banner_image",
+                  widget: "image",
+                  default: "/banner.jpg",
+                }
+              - {
+                  label: "Ticket Button Text (Desktop)",
+                  name: "ticket_text_desktop",
+                  widget: "string",
+                  default: "GET TICKETS",
+                }
+              - {
+                  label: "Ticket Button Text (Mobile)",
+                  name: "ticket_text_mobile",
+                  widget: "string",
+                  default: "Tickets",
+                }
+              - {
+                  label: "Ticket Button Link",
+                  name: "ticket_link",
+                  widget: "string",
+                  default: "/ticketselection",
+                }
+
+          - label: "About Section"
+            name: "about"
+            widget: "object"
+            fields:
+              - {
+                  label: "Logo Image",
+                  name: "logo_image",
+                  widget: "image",
+                  default: "./Akumacon.png",
+                }
+              - {
+                  label: "Logo Alt Text",
+                  name: "logo_alt",
+                  widget: "string",
+                  default: "Akumakon Logo",
+                }
+              - { label: "Description", name: "description", widget: "text" }
+              - {
+                  label: "Info Button Text",
+                  name: "info_button_text",
+                  widget: "string",
+                  default: "Info",
+                }
+              - {
+                  label: "Info Button Link",
+                  name: "info_button_link",
+                  widget: "string",
+                  default: "/info",
+                }
+
+  - name: "images"
+    label: "Site Images"
+    folder: "public/images"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Alt Text", name: "alt", widget: "string" }

@@ -2,6 +2,7 @@ import React from "react";
 import Navigation from "../Components/Navigation.jsx";
 import { Countdown } from "../Components/Countdown.jsx";
 import { Button } from "react-bootstrap";
+import InfoSlider from "../Components/InfoSlider.jsx";
 
 export function Home() {
   return (
@@ -85,6 +86,7 @@ export function Home() {
           </div>
         </div>
       </div>
+      <InfoSlider />
     </>
   );
 }

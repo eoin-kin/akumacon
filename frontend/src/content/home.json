@@ -1,0 +1,15 @@
+{
+  "hero": {
+    "banner_image": "/banner.jpg",
+    "ticket_text_desktop": "GET TICKETS",
+    "ticket_text_mobile": "Tickets",
+    "ticket_link": "/ticketselection"
+  },
+  "about": {
+    "logo_image": "./Akumacon.png",
+    "logo_alt": "Akumakon Logo",
+    "description": "Akumakon is one of the longest running Anime and Manga conventions in Ireland. Held over a weekend each year, and run by the University of Galway Anime and Manga Society, it is a student-led non-profit convention with, with all profits going to charity. Over two thousand people attended Akumakon 2024, making the convention one of the largest of its kind in Ireland. Ran every year (except 2021 and 2022, those don't count!) since 2010, Akumakon 2025 will be our twelvth event, and we're hoping to make it bigger and better than ever. Find out more information about Akumakon, our committee, and what we do, on our InfoS page.",
+    "info_button_text": "Info",
+    "info_button_link": "/info"
+  }
+}
