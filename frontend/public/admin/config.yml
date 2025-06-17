@@ -1,8 +1,6 @@
 backend:
-  name: github
-  repo: eoin-kin/akumacon # Replace with your actual repo
-  branch: main # or master
-  auth_endpoint: https://api.netlify.com/api/v1/oauth/github
+  name: git-gateway
+  branch: main
 
 media_folder: "public/images"
 public_folder: "/images"
@@ -73,12 +71,3 @@ collections:
                   widget: "string",
                   default: "/info",
                 }
-
-  - name: "images"
-    label: "Site Images"
-    folder: "public/images"
-    create: true
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Image", name: "image", widget: "image" }
-      - { label: "Alt Text", name: "alt", widget: "string" }
