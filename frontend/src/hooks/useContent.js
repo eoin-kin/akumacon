@@ -8,7 +8,15 @@ const useContent = (contentType) => {
   useEffect(() => {
     const loadContent = async () => {
       try {
-        const response = await fetch(`/src/content/${contentType}.json`);
+        // Try the current path first, then fallback to CMS path
+        let response;
+        try {
+          response = await fetch(`/src/content/${contentType}.json`);
+        } catch (err) {
+          // Fallback to the path where CMS saves files
+          response = await fetch(`/content/${contentType}.json`);
+        }
+
         if (!response.ok) {
           throw new Error(`Failed to load ${contentType} content`);
         }
