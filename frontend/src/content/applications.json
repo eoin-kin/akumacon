@@ -1,0 +1,40 @@
+{
+  "sections": [
+    {
+      "title": "Cosplay Masquerade",
+      "description": "Show off your incredible cosplay skills and compete in our renowned masquerade event. Open to all skill levels with multiple categories available.",
+      "image": "/images/cosplay-masquerade.jpg",
+      "formLink": "https://forms.google.com/cosplay-masquerade"
+    },
+    {
+      "title": "Karaoke",
+      "description": "Take the stage and perform your favorite songs! Our karaoke event welcomes singers of all abilities to share their vocal talents with fellow fans.",
+      "image": "/images/karaoke.jpg",
+      "formLink": "https://forms.google.com/karaoke"
+    },
+    {
+      "title": "Volunteers",
+      "description": "Help make our event amazing by joining our volunteer team. Various positions available with perks including free admission depending on hours worked.",
+      "image": "/images/volunteers.jpg",
+      "formLink": "https://forms.google.com/volunteers"
+    },
+    {
+      "title": "Host a Panel",
+      "description": "Share your knowledge and passion by hosting a panel. We welcome topics on anime, manga, gaming, cosplay techniques, and more!",
+      "image": "/images/host-panel.jpg",
+      "formLink": "https://forms.google.com/host-panel"
+    },
+    {
+      "title": "Artist Alley",
+      "description": "Showcase and sell your artwork in our Artist Alley. Limited spaces available for artists of all styles to display their creative talents.",
+      "image": "/images/artist-alley.jpg",
+      "formLink": "https://forms.google.com/artist-alley"
+    },
+    {
+      "title": "Trader Hall",
+      "description": "Book a spot in our Trader Hall to sell merchandise, collectibles, and other fandom items to our attendees. Various booth sizes available.",
+      "image": "/images/trader-hall.jpg",
+      "formLink": "https://forms.google.com/trader-hall"
+    }
+  ]
+}

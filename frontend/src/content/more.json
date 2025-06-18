@@ -1,0 +1,41 @@
+{
+  "faq": [
+    {
+      "question": "What is Akumakon?",
+      "answer": "Akumakon is one of the longest running Anime and Manga conventions in Ireland. Held over a weekend, and run by students of The University of Galway, it is a non-profit convention with many events used to raise money for charity. Over two thousand people attended Akumakon 2024, making the convention one of the largest of its kind in Ireland. Ran every year (except 2021 and 2022 those don't count) since 2010, Akumakon 2025 will be our twelfth event, and we're hoping to make it bigger and better than ever."
+    }
+  ],
+  "crew": [
+    {
+      "name": "First Last",
+      "position": "Position",
+      "image": "/api/placeholder/200/200"
+    }
+  ],
+  "rules": [
+    {
+      "title": "General Rules",
+      "url": "https://www.akumakon.com/_files/ugd/aeafb7_4e86c445d29041cbb2e60d9e4815439a.pdf"
+    },
+    {
+      "title": "Cosplay Rules",
+      "url": "https://www.akumakon.com/_files/ugd/aeafb7_24e66cf7970f44b98db34bc4eff7033f.pdf"
+    },
+    {
+      "title": "Artist Alley Rules",
+      "url": "https://www.akumakon.com/_files/ugd/aeafb7_b8ea8b6e74e74de98b7acf9071fd87e6.pdf"
+    },
+    {
+      "title": "Trade Hall",
+      "url": "https://www.akumakon.com/_files/ugd/aeafb7_6ff663abfa4349ed8ff62c4a0406b81c.pdf"
+    },
+    {
+      "title": "Ticket Terms and Conditions",
+      "url": "https://www.akumakon.com/_files/ugd/aeafb7_e47e01f410ed4f509b6917ec9123e6d2.pdf"
+    }
+  ],
+  "parent_letter": {
+    "title": "Letter to Parents",
+    "content": "To all parents and guardians,\n\nYour child may want to come to Akumakon, but you might not have heard of us before.\nIf so, we would like to start by giving you some information about Akumakon.\n\nAkumakon is a non-profit, student-run convention in the heart of the University of Galway.\nWe offer a place where people of all ages can come to enjoy not only Japanese Anime, Manga and Japanese Culture as a whole, but also Video Games and Cosplay (the practice of dressing up as a character from a film, book, or video game).\n\nEveryone organising the convention is a volunteer, with each and every one of us wanting to provide\na place to celebrate all things Japanese, and pass on a love of Japanese culture to others."
+  }
+}

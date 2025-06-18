@@ -1,0 +1,253 @@
+{
+  "schedules": [
+    {
+      "day": "Friday",
+      "items": [
+        {
+          "time": "10:00 AM - 11:30 AM",
+          "title": "Opening Ceremony",
+          "location": "Main Hall"
+        },
+        {
+          "time": "12:00 PM - 1:30 PM",
+          "title": "Guest Panel: Special Guests",
+          "location": "Panel Room A"
+        },
+        {
+          "time": "2:00 PM - 3:30 PM",
+          "title": "Artist Workshop",
+          "location": "Workshop Room 1"
+        },
+        {
+          "time": "4:00 PM - 6:00 PM",
+          "title": "Cosplay Competition Preliminaries",
+          "location": "Main Stage"
+        },
+        {
+          "time": "5:00 PM - 7:00 PM",
+          "title": "Gaming Tournament Finals",
+          "location": "Gaming Area"
+        }
+      ]
+    },
+    {
+      "day": "Saturday",
+      "items": [
+        {
+          "time": "9:30 AM - 11:00 AM",
+          "title": "Voice Actor Panel",
+          "location": "Main Hall"
+        },
+        {
+          "time": "11:30 AM - 1:00 PM",
+          "title": "Anime Screening",
+          "location": "Theater Room"
+        },
+        {
+          "time": "2:00 PM - 4:00 PM",
+          "title": "Main Cosplay Contest",
+          "location": "Main Stage"
+        },
+        {
+          "time": "2:00 PM - 3:30 PM",
+          "title": "Closing Ceremony & Awards",
+          "location": "Main Hall"
+        }
+      ]
+    },
+    {
+      "day": "Sunday",
+      "items": [
+        {
+          "time": "10:00 AM - 11:30 AM",
+          "title": "Fan Art Exhibition",
+          "location": "Exhibition Hall"
+        },
+        {
+          "time": "12:00 PM - 1:30 PM",
+          "title": "Manga Creator Talk",
+          "location": "Panel Room B"
+        }
+      ]
+    }
+  ],
+  "gaming": {
+    "image": "/api/placeholder/400/300?text=Gaming Zone",
+    "description": "The Gaming Zone features the latest consoles, PC gaming stations, and retro gaming setups. Join our tournaments for a chance to win exclusive prizes and bragging rights!",
+    "tournaments": [
+      {
+        "title": "Super Smash Bros Ultimate",
+        "time": "Friday 3PM",
+        "details": "32 player bracket, double elimination. Prizes for top 3 finishers."
+      },
+      {
+        "title": "Mario Kart 8 Deluxe",
+        "time": "Saturday 1PM",
+        "details": "16 player tournament with preliminary rounds and finals."
+      },
+      {
+        "title": "Retro Gaming Challenge",
+        "time": "Sunday 11AM",
+        "details": "Test your skills on classic games from NES, SNES, and Sega Genesis."
+      }
+    ],
+    "cta": { "text": "View All Gaming Events", "link": "#" }
+  },
+  "vendors": [
+    {
+      "name": "Vendor Name 1",
+      "booth": "10",
+      "image": "/api/placeholder/300/200?text=Vendor 1",
+      "description": "Products include merchandise, collectibles, and artwork."
+    },
+    {
+      "name": "Vendor Name 2",
+      "booth": "20",
+      "image": "/api/placeholder/300/200?text=Vendor 2",
+      "description": "Products include merchandise, collectibles, and artwork."
+    },
+    {
+      "name": "Vendor Name 3",
+      "booth": "30",
+      "image": "/api/placeholder/300/200?text=Vendor 3",
+      "description": "Products include merchandise, collectibles, and artwork."
+    },
+    {
+      "name": "Vendor Name 4",
+      "booth": "40",
+      "image": "/api/placeholder/300/200?text=Vendor 4",
+      "description": "Products include merchandise, collectibles, and artwork."
+    }
+  ],
+  "maps": [
+    {
+      "tab": "overall",
+      "title": "Overall Venue",
+      "image": "/api/placeholder/1000/600?text=Overall Venue Map",
+      "description": "The venue spans across three main buildings with multiple floors. Use this map to navigate between different zones and find key locations."
+    },
+    {
+      "tab": "mainhall",
+      "title": "Main Hall",
+      "image": "/api/placeholder/1000/600?text=Main Hall Map",
+      "description": "The Main Hall houses the primary stage, seating areas, and main exhibition space. This is where opening and closing ceremonies will take place."
+    },
+    {
+      "tab": "panels",
+      "title": "Panel Rooms",
+      "image": "/api/placeholder/1000/600?text=Panel Rooms Map",
+      "description": "Panel rooms are located on the second floor. Each room is equipped with audio-visual equipment and seating for attendees."
+    },
+    {
+      "tab": "facilities",
+      "title": "Facilities",
+      "image": "/api/placeholder/1000/600?text=Facilities Map",
+      "description": "Find restrooms, first aid stations, information booths, food courts, and rest areas marked on this map."
+    },
+    {
+      "tab": "location",
+      "title": "Venue Location",
+      "image": "/api/placeholder/600/400?text=Location Map",
+      "description": "The venue is located in downtown and is accessible via public transportation. Several parking options are available nearby."
+    }
+  ],
+  "downloads": [
+    { "text": "Download Full Schedule (PDF)", "link": "#" },
+    { "text": "Subscribe to Calendar", "link": "#" },
+    { "text": "Download All Maps (PDF)", "link": "#" },
+    { "text": "Accessibility Guide", "link": "#" },
+    { "text": "Download Cosplay Guidelines (PDF)", "link": "#" },
+    { "text": "Contest Registration Form", "link": "#" }
+  ],
+  "cosplay": {
+    "contest": {
+      "title": "Cosplay Contest",
+      "description": "Our annual cosplay contest is one of the highlights of the event. Participants can compete in various categories and showcase their craftsmanship, performance, and creativity.",
+      "categories": [
+        {
+          "name": "Master Division",
+          "description": "For experienced cosplayers"
+        },
+        {
+          "name": "Journeyman Division",
+          "description": "For intermediate cosplayers"
+        },
+        { "name": "Novice Division", "description": "For beginners" },
+        { "name": "Youth Division", "description": "For cosplayers under 16" },
+        {
+          "name": "Group Category",
+          "description": "For teams of 2 or more cosplayers"
+        }
+      ],
+      "image": "/api/placeholder/500/400?text=Cosplay Contest"
+    },
+    "rules": [
+      {
+        "title": "Registration & Eligibility",
+        "content": "Participants must register at least 24 hours before the contest. All contestants must have valid event badges and follow safety guidelines. Pre-registration is available online until one week before the event."
+      },
+      {
+        "title": "Judging Criteria",
+        "content": "Entries will be judged on the following criteria: Craftsmanship (40%), Accuracy (30%), Presentation (20%), Overall Impression (10%)."
+      },
+      {
+        "title": "Props & Weapons Policy",
+        "content": "All props and weapons must be checked and approved at the weapons check station. Metal weapons, functional projectile weapons, and props that exceed 6 feet in any dimension are prohibited."
+      }
+    ],
+    "photo_areas": [
+      { "name": "Main Hall Backdrop", "description": "Fantasy castle theme" },
+      {
+        "name": "Garden Area",
+        "description": "Natural setting with sakura decorations"
+      },
+      {
+        "name": "Sci-Fi Corner",
+        "description": "Futuristic space station environment"
+      },
+      {
+        "name": "Urban Alley",
+        "description": "City street scene with neon lights"
+      }
+    ],
+    "repair_station": {
+      "description": "A dedicated cosplay repair station will be available throughout the event. Staffed by volunteers, the station will have basic supplies for emergency repairs and touch-ups.",
+      "supplies": [
+        "Hot glue guns",
+        "safety pins",
+        "needle and thread",
+        "fabric tape",
+        "spirit gum",
+        "makeup supplies",
+        "and more"
+      ],
+      "location": "Second floor near Room 204. Open during all event hours."
+    },
+    "gallery": [
+      {
+        "image": "/api/placeholder/400/300?text=Cosplay 1",
+        "alt": "Cosplay Gallery 1"
+      },
+      {
+        "image": "/api/placeholder/400/300?text=Cosplay 2",
+        "alt": "Cosplay Gallery 2"
+      },
+      {
+        "image": "/api/placeholder/400/300?text=Cosplay 3",
+        "alt": "Cosplay Gallery 3"
+      },
+      {
+        "image": "/api/placeholder/400/300?text=Cosplay 4",
+        "alt": "Cosplay Gallery 4"
+      },
+      {
+        "image": "/api/placeholder/400/300?text=Cosplay 5",
+        "alt": "Cosplay Gallery 5"
+      },
+      {
+        "image": "/api/placeholder/400/300?text=Cosplay 6",
+        "alt": "Cosplay Gallery 6"
+      }
+    ]
+  }
+}

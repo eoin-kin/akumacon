@@ -1,0 +1,39 @@
+{
+  "gallery_years": [
+    {
+      "year": "2025",
+      "images": [
+        {
+          "url": "/gallery/2025/image1.jpg",
+          "title": "Opening Ceremony",
+          "description": "The grand opening of Akumakon 2025"
+        },
+        {
+          "url": "/gallery/2025/image2.jpg",
+          "title": "Cosplay Contest",
+          "description": "Winners of the main cosplay competition"
+        }
+      ]
+    },
+    {
+      "year": "2024",
+      "images": [
+        {
+          "url": "/gallery/2024/image1.jpg",
+          "title": "Main Stage Events",
+          "description": "Highlights from our main stage performances"
+        },
+        {
+          "url": "/gallery/2024/image2.jpg",
+          "title": "Artist Alley",
+          "description": "The bustling artist alley at Akumakon 2024"
+        }
+      ]
+    }
+  ],
+  "hero_section": {
+    "title": "Gallery",
+    "subtitle": "Browse our event highlights by year",
+    "background_image": "/images/gallery-hero.jpg"
+  }
+}
