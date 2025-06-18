@@ -6,68 +6,390 @@ media_folder: "public/images"
 public_folder: "/images"
 
 collections:
-  - name: "homepage"
-    label: "Home Page"
+  - name: "home"
+    label: "Home"
     files:
-      - name: "home"
-        label: "Home Page Content"
+      - label: "Home Content"
+        name: "home"
         file: "src/content/home.json"
+        format: "json"
         fields:
-          - label: "Hero Section"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {
-                  label: "Banner Image",
-                  name: "banner_image",
-                  widget: "image",
-                  default: "/banner.jpg",
-                }
-              - {
-                  label: "Ticket Button Text (Desktop)",
-                  name: "ticket_text_desktop",
-                  widget: "string",
-                  default: "GET TICKETS",
-                }
-              - {
-                  label: "Ticket Button Text (Mobile)",
-                  name: "ticket_text_mobile",
-                  widget: "string",
-                  default: "Tickets",
-                }
-              - {
-                  label: "Ticket Button Link",
-                  name: "ticket_link",
-                  widget: "string",
-                  default: "/ticketselection",
-                }
-
-          - label: "About Section"
-            name: "about"
-            widget: "object"
-            fields:
-              - {
-                  label: "Logo Image",
-                  name: "logo_image",
-                  widget: "image",
-                  default: "./Akumacon.png",
-                }
-              - {
-                  label: "Logo Alt Text",
-                  name: "logo_alt",
-                  widget: "string",
-                  default: "Akumakon Logo",
-                }
-              - { label: "Description", name: "description", widget: "text" }
-              - {
-                  label: "Info Button Text",
-                  name: "info_button_text",
-                  widget: "string",
-                  default: "Info",
-                }
-              - {
-                  label: "Info Button Link",
-                  name: "info_button_link",
-                  widget: "string",
-                  default: "/info",
-                }
+          - {
+              label: "Hero",
+              name: "hero",
+              widget: "object",
+              fields:
+                [
+                  {
+                    label: "Banner Image",
+                    name: "banner_image",
+                    widget: "string",
+                  },
+                  {
+                    label: "Ticket Text Desktop",
+                    name: "ticket_text_desktop",
+                    widget: "string",
+                  },
+                  {
+                    label: "Ticket Text Mobile",
+                    name: "ticket_text_mobile",
+                    widget: "string",
+                  },
+                  {
+                    label: "Ticket Link",
+                    name: "ticket_link",
+                    widget: "string",
+                  },
+                ],
+            }
+          - {
+              label: "About",
+              name: "about",
+              widget: "object",
+              fields:
+                [
+                  { label: "Logo Image", name: "logo_image", widget: "string" },
+                  { label: "Logo Alt", name: "logo_alt", widget: "string" },
+                  { label: "Description", name: "description", widget: "text" },
+                  {
+                    label: "Info Button Text",
+                    name: "info_button_text",
+                    widget: "string",
+                  },
+                  {
+                    label: "Info Button Link",
+                    name: "info_button_link",
+                    widget: "string",
+                  },
+                ],
+            }
+  - name: "info"
+    label: "Info"
+    files:
+      - label: "Info Content"
+        name: "info"
+        file: "src/content/info.json"
+        format: "json"
+        fields:
+          - {
+              label: "Schedules",
+              name: "schedules",
+              widget: "list",
+              fields:
+                [
+                  { label: "Day", name: "day", widget: "string" },
+                  {
+                    label: "Items",
+                    name: "items",
+                    widget: "list",
+                    fields:
+                      [
+                        { label: "Time", name: "time", widget: "string" },
+                        { label: "Title", name: "title", widget: "string" },
+                        {
+                          label: "Location",
+                          name: "location",
+                          widget: "string",
+                        },
+                      ],
+                  },
+                ],
+            }
+          - {
+              label: "Gaming",
+              name: "gaming",
+              widget: "object",
+              fields:
+                [
+                  { label: "Image", name: "image", widget: "string" },
+                  { label: "Description", name: "description", widget: "text" },
+                  {
+                    label: "Tournaments",
+                    name: "tournaments",
+                    widget: "list",
+                    fields:
+                      [
+                        { label: "Title", name: "title", widget: "string" },
+                        { label: "Time", name: "time", widget: "string" },
+                        { label: "Details", name: "details", widget: "string" },
+                      ],
+                  },
+                  {
+                    label: "CTA",
+                    name: "cta",
+                    widget: "object",
+                    fields:
+                      [
+                        { label: "Text", name: "text", widget: "string" },
+                        { label: "Link", name: "link", widget: "string" },
+                      ],
+                  },
+                ],
+            }
+          - {
+              label: "Vendors",
+              name: "vendors",
+              widget: "list",
+              fields:
+                [
+                  { label: "Name", name: "name", widget: "string" },
+                  { label: "Booth", name: "booth", widget: "string" },
+                  { label: "Image", name: "image", widget: "string" },
+                  {
+                    label: "Description",
+                    name: "description",
+                    widget: "string",
+                  },
+                ],
+            }
+          - {
+              label: "Maps",
+              name: "maps",
+              widget: "list",
+              fields:
+                [
+                  { label: "Tab", name: "tab", widget: "string" },
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Image", name: "image", widget: "string" },
+                  {
+                    label: "Description",
+                    name: "description",
+                    widget: "string",
+                  },
+                ],
+            }
+          - {
+              label: "Downloads",
+              name: "downloads",
+              widget: "list",
+              fields:
+                [
+                  { label: "Text", name: "text", widget: "string" },
+                  { label: "Link", name: "link", widget: "string" },
+                ],
+            }
+          - {
+              label: "Cosplay",
+              name: "cosplay",
+              widget: "object",
+              fields:
+                [
+                  {
+                    label: "Contest",
+                    name: "contest",
+                    widget: "object",
+                    fields:
+                      [
+                        { label: "Title", name: "title", widget: "string" },
+                        {
+                          label: "Description",
+                          name: "description",
+                          widget: "text",
+                        },
+                        {
+                          label: "Categories",
+                          name: "categories",
+                          widget: "list",
+                          fields:
+                            [
+                              { label: "Name", name: "name", widget: "string" },
+                              {
+                                label: "Description",
+                                name: "description",
+                                widget: "string",
+                              },
+                            ],
+                        },
+                        { label: "Image", name: "image", widget: "string" },
+                      ],
+                  },
+                  {
+                    label: "Rules",
+                    name: "rules",
+                    widget: "list",
+                    fields:
+                      [
+                        { label: "Title", name: "title", widget: "string" },
+                        { label: "Content", name: "content", widget: "text" },
+                      ],
+                  },
+                  {
+                    label: "Photo Areas",
+                    name: "photo_areas",
+                    widget: "list",
+                    fields:
+                      [
+                        { label: "Name", name: "name", widget: "string" },
+                        {
+                          label: "Description",
+                          name: "description",
+                          widget: "string",
+                        },
+                      ],
+                  },
+                  {
+                    label: "Repair Station",
+                    name: "repair_station",
+                    widget: "object",
+                    fields:
+                      [
+                        {
+                          label: "Description",
+                          name: "description",
+                          widget: "text",
+                        },
+                        {
+                          label: "Supplies",
+                          name: "supplies",
+                          widget: "list",
+                          field:
+                            {
+                              label: "Supply",
+                              name: "supply",
+                              widget: "string",
+                            },
+                        },
+                        {
+                          label: "Location",
+                          name: "location",
+                          widget: "string",
+                        },
+                      ],
+                  },
+                  {
+                    label: "Gallery",
+                    name: "gallery",
+                    widget: "list",
+                    fields:
+                      [
+                        { label: "Image", name: "image", widget: "string" },
+                        { label: "Alt", name: "alt", widget: "string" },
+                      ],
+                  },
+                ],
+            }
+  - name: "more"
+    label: "More"
+    files:
+      - label: "More Content"
+        name: "more"
+        file: "src/content/more.json"
+        format: "json"
+        fields:
+          - {
+              label: "FAQ",
+              name: "faq",
+              widget: "list",
+              fields:
+                [
+                  { label: "Question", name: "question", widget: "string" },
+                  { label: "Answer", name: "answer", widget: "text" },
+                ],
+            }
+          - {
+              label: "Crew",
+              name: "crew",
+              widget: "list",
+              fields:
+                [
+                  { label: "Name", name: "name", widget: "string" },
+                  { label: "Position", name: "position", widget: "string" },
+                  { label: "Image", name: "image", widget: "string" },
+                ],
+            }
+          - {
+              label: "Rules",
+              name: "rules",
+              widget: "list",
+              fields:
+                [
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Url", name: "url", widget: "string" },
+                ],
+            }
+          - {
+              label: "Parent Letter",
+              name: "parent_letter",
+              widget: "object",
+              fields:
+                [
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Content", name: "content", widget: "text" },
+                ],
+            }
+  - name: "applications"
+    label: "Applications"
+    files:
+      - label: "Applications Content"
+        name: "applications"
+        file: "src/content/applications.json"
+        format: "json"
+        fields:
+          - {
+              label: "Sections",
+              name: "sections",
+              widget: "list",
+              fields:
+                [
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Description", name: "description", widget: "text" },
+                  { label: "Image", name: "image", widget: "string" },
+                  { label: "Form Link", name: "formLink", widget: "string" },
+                ],
+            }
+  - name: "gallery"
+    label: "Gallery"
+    files:
+      - label: "Gallery Content"
+        name: "gallery"
+        file: "src/content/gallery.json"
+        format: "json"
+        fields:
+          - {
+              label: "Years",
+              name: "years",
+              widget: "list",
+              fields:
+                [
+                  { label: "Year", name: "year", widget: "string" },
+                  {
+                    label: "Images",
+                    name: "images",
+                    widget: "list",
+                    fields:
+                      [
+                        { label: "Image", name: "image", widget: "string" },
+                        { label: "Alt", name: "alt", widget: "string" },
+                      ],
+                  },
+                ],
+            }
+  - name: "guests"
+    label: "Guests"
+    files:
+      - label: "Guests Content"
+        name: "guests"
+        file: "src/content/guests.json"
+        format: "json"
+        fields:
+          - {
+              label: "Guests",
+              name: "guests",
+              widget: "list",
+              fields:
+                [
+                  { label: "Name", name: "name", widget: "string" },
+                  { label: "Bio", name: "bio", widget: "text" },
+                  { label: "Image", name: "image", widget: "string" },
+                  {
+                    label: "Links",
+                    name: "links",
+                    widget: "list",
+                    fields:
+                      [
+                        { label: "Type", name: "type", widget: "string" },
+                        { label: "Url", name: "url", widget: "string" },
+                      ],
+                  },
+                ],
+            }
