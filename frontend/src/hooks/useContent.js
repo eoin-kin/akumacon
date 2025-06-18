@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useContent = (contentType) => {
+export const useHomeContent = () => {
   const [content, setContent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -8,38 +8,38 @@ const useContent = (contentType) => {
   useEffect(() => {
     const loadContent = async () => {
       try {
-        // Try the current path first, then fallback to CMS path
-        let response;
-        try {
-          response = await fetch(`/src/content/${contentType}.json`);
-        } catch (err) {
-          // Fallback to the path where CMS saves files
-          response = await fetch(`/content/${contentType}.json`);
-        }
-
+        const response = await fetch("/src/content/home.json");
         if (!response.ok) {
-          throw new Error(`Failed to load ${contentType} content`);
+          throw new Error("Failed to load content");
         }
         const data = await response.json();
         setContent(data);
       } catch (err) {
         setError(err.message);
-        setContent(null);
+        // Fallback to default content if file doesn't exist
+        setContent({
+          hero: {
+            banner_image: "/banner.jpg",
+            ticket_text_desktop: "GET TICKETS",
+            ticket_text_mobile: "Tickets",
+            ticket_link: "/ticketselection",
+          },
+          about: {
+            logo_image: "./Akumacon.png",
+            logo_alt: "Akumakon Logo",
+            description:
+              "Akumakon is one of the longest running Anime and Manga conventions in Ireland...",
+            info_button_text: "Info",
+            info_button_link: "/info",
+          },
+        });
       } finally {
         setLoading(false);
       }
     };
 
     loadContent();
-  }, [contentType]);
+  }, []);
 
   return { content, loading, error };
 };
-
-export const useHomeContent = () => useContent("home");
-export const useGuestsContent = () => useContent("guests");
-export const useGalleryContent = () => useContent("gallery");
-export const useApplicationsContent = () => useContent("applications");
-export const useMoreContent = () => useContent("more");
-export const useInfoContent = () => useContent("info");
-export { useContent as default };

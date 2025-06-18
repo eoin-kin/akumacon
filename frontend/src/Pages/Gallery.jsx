@@ -4,7 +4,7 @@ import { Container, Tabs, Tab } from "react-bootstrap";
 
 const Gallery = () => {
   const years = ["2018", "2019", "2020", "2023", "2024", "2025"];
-  S;
+
   return (
     <div>
       <Navigation />
