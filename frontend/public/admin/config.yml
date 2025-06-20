@@ -359,25 +359,49 @@ collections:
         file: "frontend/public/content/gallery.json"
         format: "json"
         fields:
-          - {
-              label: "Years",
-              name: "years",
-              widget: "list",
-              fields:
-                [
-                  { label: "Year", name: "year", widget: "string" },
-                  {
-                    label: "Images",
-                    name: "images",
-                    widget: "list",
+          - label: "Gallery Years"
+            name: "gallery_years"
+            widget: list
+            fields:
+              - { label: "Year", name: "year", widget: "string" }
+              - label: "Days"
+                name: "days"
+                widget: list
+                fields:
+                  - {
+                      label: "Day",
+                      name: "day",
+                      widget: "select",
+                      options: ["Friday", "Saturday", "Sunday"],
+                    }
+                  - label: "Images"
+                    name: "images"
+                    widget: list
                     fields:
-                      [
-                        { label: "Image", name: "image", widget: "string" },
-                        { label: "Alt", name: "alt", widget: "string" },
-                      ],
-                  },
-                ],
-            }
+                      - { label: "Image URL", name: "url", widget: "string" }
+                      - {
+                          label: "Title",
+                          name: "title",
+                          widget: "string",
+                          required: false,
+                        }
+                      - {
+                          label: "Description",
+                          name: "description",
+                          widget: "string",
+                          required: false,
+                        }
+          - label: "Hero Section"
+            name: "hero_section"
+            widget: object
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "string" }
+              - {
+                  label: "Background Image",
+                  name: "background_image",
+                  widget: "string",
+                }
   - name: "guests"
     label: "Guests"
     files:

@@ -2,51 +2,131 @@ import React from "react";
 import Navigation from "../Components/Navigation";
 import { Container, Tabs, Tab } from "react-bootstrap";
 import Bottom from "../Components/Bottom.jsx";
+import { useContent } from "../hooks/useContent.js";
+
+const FIXED_YEARS = ["2025", "2024", "2023", "2020", "2019", "2018"];
+const DAYS = ["Friday", "Saturday", "Sunday"];
 
 const Gallery = () => {
-  const years = ["2018", "2019", "2020", "2023", "2024", "2025"];
+  const { content, loading, error } = useContent("content/gallery.json");
+  if (loading) {
+    return (
+      <>
+        <Navigation />
+        <div
+          className="d-flex justify-content-center align-items-center"
+          style={{ height: "50vh" }}
+        >
+          <div>Loading...</div>
+        </div>
+      </>
+    );
+  }
+  if (error) {
+    console.error("Content loading error:", error);
+  }
+  const hero = content?.hero_section || {};
+  const yearsFromContent = content?.gallery_years || [];
+  // Create a map for quick lookup
+  const yearMap = Object.fromEntries(yearsFromContent.map((y) => [y.year, y]));
+  // Ensure all fixed years are present
+  const allYears = FIXED_YEARS.map(
+    (year) =>
+      yearMap[year] || { year, days: DAYS.map((day) => ({ day, images: [] })) }
+  );
 
   return (
     <div>
       <Navigation />
-
-      {/* Hero Section */}
-      <section className="py-5 bg-highlight text-center">
-        <Container>
-          <h1 className="text-primary-custom text-shadow">Gallery</h1>
-          <p className="lead text-dark">Browse our event highlights by year</p>
-        </Container>
+      {/* Hero Section with background image */}
+      <section
+        className="py-5 text-center d-flex align-items-center justify-content-center"
+        style={{
+          background: hero.background_image
+            ? `url('${hero.background_image}') center/cover no-repeat`
+            : "var(--highlight)",
+          minHeight: 300,
+          position: "relative",
+        }}
+      >
+        <div
+          style={{
+            background: "rgba(59,26,105,0.7)",
+            borderRadius: "1rem",
+            padding: "2rem 2.5rem",
+            display: "inline-block",
+            boxShadow: "0 2px 8px var(--shadow-color)",
+          }}
+        >
+          <h1
+            className="text-highlight text-shadow mb-3"
+            style={{ color: "var(--highlight)" }}
+          >
+            {hero.title || "Gallery"}
+          </h1>
+          <p className="lead" style={{ color: "var(--highlight)" }}>
+            {hero.subtitle || "Browse our event highlights by year"}
+          </p>
+        </div>
       </section>
-
       {/* Gallery Tabs Section */}
       <Container className="info-page py-5">
         <h1 className="text-center mb-5">Yearly Highlights</h1>
-
         <Tabs
-          defaultActiveKey="2025"
+          defaultActiveKey={allYears[0]?.year}
           id="gallery-tabs"
           className="mb-5 info-tabs"
           fill
         >
-          {years.map((year) => (
-            <Tab eventKey={year} title={year} key={year}>
-              <div className="">
-                <div className="row">
-                  {Array.from({ length: 6 }).map((_, idx) => (
-                    <div className="col-md-4 mb-4" key={idx}>
-                      <div className="card shadow-sm">
-                        <img
-                          src={`https://via.placeholder.com/300x200?text=${year}+Image+${
-                            idx + 1
-                          }`}
-                          className="card-img-top"
-                          alt={`Placeholder ${year}`}
-                        />
+          {allYears.map((yearObj) => (
+            <Tab
+              eventKey={yearObj.year}
+              title={yearObj.year}
+              key={yearObj.year}
+            >
+              <Tabs
+                defaultActiveKey={DAYS[0]}
+                id={`day-tabs-${yearObj.year}`}
+                className="mb-4 info-tabs"
+                fill
+              >
+                {DAYS.map((day) => {
+                  const dayObj = (yearObj.days || []).find(
+                    (d) => d.day === day
+                  ) || { day, images: [] };
+                  return (
+                    <Tab eventKey={day} title={day} key={day}>
+                      <div className="row">
+                        {dayObj.images && dayObj.images.length > 0 ? (
+                          dayObj.images.map((img, idx) => (
+                            <div className="col-md-4 mb-4" key={idx}>
+                              <div className="card shadow-sm h-100">
+                                <img
+                                  src={img.url}
+                                  className="card-img-top"
+                                  alt={
+                                    img.title ||
+                                    `Gallery ${yearObj.year} ${day}`
+                                  }
+                                  style={{ objectFit: "cover", height: 220 }}
+                                />
+                                <div className="card-body">
+                                  <h5 className="card-title">{img.title}</h5>
+                                  <p className="card-text">{img.description}</p>
+                                </div>
+                              </div>
+                            </div>
+                          ))
+                        ) : (
+                          <div className="col-12 text-center text-muted">
+                            No images for this day yet.
+                          </div>
+                        )}
                       </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+                    </Tab>
+                  );
+                })}
+              </Tabs>
             </Tab>
           ))}
         </Tabs>

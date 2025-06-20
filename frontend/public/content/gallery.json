@@ -2,31 +2,121 @@
   "gallery_years": [
     {
       "year": "2025",
-      "images": [
+      "days": [
         {
-          "url": "/gallery/2025/image1.jpg",
-          "title": "Opening Ceremony",
-          "description": "The grand opening of Akumakon 2025"
+          "day": "Friday",
+          "images": [
+            {
+              "url": "/gallery/2025/friday1.jpg",
+              "title": "Opening Ceremony",
+              "description": "Friday opening"
+            }
+          ]
         },
         {
-          "url": "/gallery/2025/image2.jpg",
-          "title": "Cosplay Contest",
-          "description": "Winners of the main cosplay competition"
+          "day": "Saturday",
+          "images": [
+            {
+              "url": "/gallery/2025/saturday1.jpg",
+              "title": "Cosplay",
+              "description": "Saturday fun"
+            }
+          ]
+        },
+        {
+          "day": "Sunday",
+          "images": []
         }
       ]
     },
     {
       "year": "2024",
-      "images": [
+      "days": [
         {
-          "url": "/gallery/2024/image1.jpg",
-          "title": "Main Stage Events",
-          "description": "Highlights from our main stage performances"
+          "day": "Friday",
+          "images": []
         },
         {
-          "url": "/gallery/2024/image2.jpg",
-          "title": "Artist Alley",
-          "description": "The bustling artist alley at Akumakon 2024"
+          "day": "Saturday",
+          "images": [
+            {
+              "url": "/gallery/2024/saturday1.jpg",
+              "title": "Main Stage",
+              "description": "Saturday events"
+            }
+          ]
+        },
+        {
+          "day": "Sunday",
+          "images": []
+        }
+      ]
+    },
+    {
+      "year": "2023",
+      "days": [
+        {
+          "day": "Friday",
+          "images": []
+        },
+        {
+          "day": "Saturday",
+          "images": []
+        },
+        {
+          "day": "Sunday",
+          "images": []
+        }
+      ]
+    },
+    {
+      "year": "2020",
+      "days": [
+        {
+          "day": "Friday",
+          "images": []
+        },
+        {
+          "day": "Saturday",
+          "images": []
+        },
+        {
+          "day": "Sunday",
+          "images": []
+        }
+      ]
+    },
+    {
+      "year": "2019",
+      "days": [
+        {
+          "day": "Friday",
+          "images": []
+        },
+        {
+          "day": "Saturday",
+          "images": []
+        },
+        {
+          "day": "Sunday",
+          "images": []
+        }
+      ]
+    },
+    {
+      "year": "2018",
+      "days": [
+        {
+          "day": "Friday",
+          "images": []
+        },
+        {
+          "day": "Saturday",
+          "images": []
+        },
+        {
+          "day": "Sunday",
+          "images": []
         }
       ]
     }
