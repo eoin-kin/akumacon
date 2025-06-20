@@ -156,28 +156,8 @@ collections:
                     name: "description",
                     widget: "string",
                   },
-                ],            
-            }
-            - {
-              label: "Location",
-              name: "location",
-              widget: "object",
-              fields:
-                [
-                  { label: "Getting to the Venue Text", name: "description", widget: "text" },
-                  { label: "Getting to the Venue Image", name: "description_image", widget: "string" },
-                  {
-                    label: "Public Transport",
-                    name: "public_transport",
-                    widget: "list",
-                    field: { label: "Item", name: "item", widget: "string" },
-                  },
-                  { label: "Public Transport Image", name: "public_transport_image", widget: "string" },
-                  { label: "Parking", name: "parking", widget: "text" },
-                  { label: "Parking Image", name: "parking_image", widget: "string" },
                 ],
             }
-
           - {
               label: "Downloads",
               name: "downloads",
@@ -432,5 +412,21 @@ collections:
                         { label: "Url", name: "url", widget: "string" },
                       ],
                   },
+                ],
+            }
+          - {
+              label: "Location",
+              name: "location",
+              widget: "object",
+              fields:
+                [
+                  { label: "Description", name: "description", widget: "text" },
+                  {
+                    label: "Public Transport",
+                    name: "public_transport",
+                    widget: "list",
+                    field: { label: "Item", name: "item", widget: "string" },
+                  },
+                  { label: "Parking", name: "parking", widget: "text" },
                 ],
             }
