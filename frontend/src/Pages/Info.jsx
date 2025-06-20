@@ -11,8 +11,35 @@ import {
 } from "react-bootstrap";
 import "./InfoPage.css";
 import Navigation from "../Components/Navigation";
+import { useContent } from "../hooks/useContent.js";
 
 export function InfoPage() {
+  const { content, loading, error } = useContent("content/info.json");
+
+  if (loading) {
+    return (
+      <>
+        <Navigation />
+        <div
+          className="d-flex justify-content-center align-items-center"
+          style={{ height: "50vh" }}
+        >
+          <div>Loading...</div>
+        </div>
+      </>
+    );
+  }
+
+  if (error) {
+    console.error("Content loading error:", error);
+  }
+
+  const schedulesContent = content?.schedules || [];
+  const gamingContent = content?.gaming || {};
+  const vendorsContent = content?.vendors || [];
+  const mapsContent = content?.maps || [];
+  const downloadsContent = content?.downloads || [];
+  const cosplayContent = content?.cosplay || {};
   return (
     <>
       <Navigation />
@@ -31,178 +58,31 @@ export function InfoPage() {
             <div className="tab-content-wrapper">
               <h2 className="mb-4">Event Schedule</h2>
 
-              <Accordion defaultActiveKey="0" className="mb-4">
-                <Accordion.Item eventKey="0">
-                  <Accordion.Header>Friday Schedule</Accordion.Header>
-                  <Accordion.Body>
-                    <div className="schedule-wrapper">
-                      <div className="schedule-item">
-                        <span className="time">10:00 AM - 11:30 AM</span>
-                        <div className="event-details">
-                          <h5>Opening Ceremony</h5>
-                          <p>Main Hall</p>
+              {/* Dynamic Schedule Accordion */}
+              {content && content.schedules && (
+                <Accordion defaultActiveKey="0" className="mb-4">
+                  {content.schedules.map((schedule, idx) => (
+                    <Accordion.Item eventKey={String(idx)} key={schedule.day}>
+                      <Accordion.Header>
+                        {schedule.day} Schedule
+                      </Accordion.Header>
+                      <Accordion.Body>
+                        <div className="schedule-wrapper">
+                          {schedule.items.map((item, i) => (
+                            <div className="schedule-item" key={i}>
+                              <span className="time">{item.time}</span>
+                              <div className="event-details">
+                                <h5>{item.title}</h5>
+                                <p>{item.location}</p>
+                              </div>
+                            </div>
+                          ))}
                         </div>
-                      </div>
-                      <div className="schedule-item">
-                        <span className="time">12:00 PM - 1:30 PM</span>
-                        <div className="event-details">
-                          <h5>Guest Panel: Special Guests</h5>
-                          <p>Panel Room A</p>
-                        </div>
-                      </div>
-                      <div className="schedule-item">
-                        <span className="time">2:00 PM - 3:30 PM</span>
-                        <div className="event-details">
-                          <h5>Artist Workshop</h5>
-                          <p>Workshop Room 1</p>
-                        </div>
-                      </div>
-                      <div className="schedule-item">
-                        <span className="time">4:00 PM - 6:00 PM</span>
-                        <div className="event-details">
-                          <h5>Cosplay Competition Preliminaries</h5>
-                          <p>Main Stage</p>
-                        </div>
-                      </div>
-                    </div>
-                  </Accordion.Body>
-                </Accordion.Item>
-                <Accordion.Item eventKey="1">
-                  <Accordion.Header>Saturday Schedule</Accordion.Header>
-                  <Accordion.Body>
-                    <div className="schedule-wrapper">
-                      <div className="schedule-item">
-                        <span className="time">9:30 AM - 11:00 AM</span>
-                        <div className="event-details">
-                          <h5>Voice Actor Panel</h5>
-                          <p>Main Hall</p>
-                        </div>
-                      </div>
-                      <div className="schedule-item">
-                        <span className="time">11:30 AM - 1:00 PM</span>
-                        <div className="event-details">
-                          <h5>Anime Screening</h5>
-                          <p>Theater Room</p>
-                        </div>
-                      </div>
-                      <div className="schedule-item">
-                        <span className="time">2:00 PM - 4:00 PM</span>
-                        <div className="event-details">
-                          <h5>Main Cosplay Contest</h5>
-                          <p>Main Stage</p>
-                        </div>
-                      </div>
-                      <div className="schedule-item">
-                        <span className="time">5:00 PM - 7:00 PM</span>
-                        <div className="event-details">
-                          <h5>Gaming Tournament Finals</h5>
-                          <p>Gaming Area</p>
-                        </div>
-                      </div>
-                    </div>
-                  </Accordion.Body>
-                </Accordion.Item>
-                <Accordion.Item eventKey="2">
-                  <Accordion.Header>Sunday Schedule</Accordion.Header>
-                  <Accordion.Body>
-                    <div className="schedule-wrapper">
-                      <div className="schedule-item">
-                        <span className="time">10:00 AM - 11:30 AM</span>
-                        <div className="event-details">
-                          <h5>Fan Art Exhibition</h5>
-                          <p>Exhibition Hall</p>
-                        </div>
-                      </div>
-                      <div className="schedule-item">
-                        <span className="time">12:00 PM - 1:30 PM</span>
-                        <div className="event-details">
-                          <h5>Manga Creator Talk</h5>
-                          <p>Panel Room B</p>
-                        </div>
-                      </div>
-                      <div className="schedule-item">
-                        <span className="time">2:00 PM - 3:30 PM</span>
-                        <div className="event-details">
-                          <h5>Closing Ceremony & Awards</h5>
-                          <p>Main Hall</p>
-                        </div>
-                      </div>
-                    </div>
-                  </Accordion.Body>
-                </Accordion.Item>
-              </Accordion>
-
-              {/* Gaming Card with Tournament Signups */}
-              <div className="gaming-card p-4 mb-4">
-                <h3 className="mb-3 text-tertiary">Gaming Zone</h3>
-                <Row>
-                  <Col lg={4} md={12} className="mb-4 mb-lg-0">
-                    <img
-                      src="/api/placeholder/400/300?text=Gaming Zone"
-                      alt="Gaming Zone"
-                      className="img-fluid rounded"
-                    />
-                  </Col>
-                  <Col lg={8} md={12}>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      The Gaming Zone features the latest consoles, PC gaming
-                      stations, and retro gaming setups. Join our tournaments
-                      for a chance to win exclusive prizes and bragging rights!
-                    </p>
-
-                    <h4 className="mt-4 mb-3">Tournament Schedule</h4>
-                    <div className="tournament-list">
-                      <div className="tournament-item">
-                        <div className="d-flex justify-content-between align-items-center mb-2">
-                          <h5 className="mb-0">Super Smash Bros Ultimate</h5>
-                          <span className="tournament-badge price-pill">
-                            Friday 3PM
-                          </span>
-                        </div>
-                        <p className="mb-2">
-                          32 player bracket, double elimination. Prizes for top
-                          3 finishers.
-                        </p>
-                        <button className="cta-button">Sign Up</button>
-                      </div>
-
-                      <div className="tournament-item">
-                        <div className="d-flex justify-content-between align-items-center mb-2">
-                          <h5 className="mb-0">Mario Kart 8 Deluxe</h5>
-                          <span className="tournament-badge price-pill">
-                            Saturday 1PM
-                          </span>
-                        </div>
-                        <p className="mb-2">
-                          16 player tournament with preliminary rounds and
-                          finals.
-                        </p>
-                        <button className="cta-button">Sign Up</button>
-                      </div>
-
-                      <div className="tournament-item">
-                        <div className="d-flex justify-content-between align-items-center mb-2">
-                          <h5 className="mb-0">Retro Gaming Challenge</h5>
-                          <span className="tournament-badge price-pill">
-                            Sunday 11AM
-                          </span>
-                        </div>
-                        <p className="mb-2">
-                          Test your skills on classic games from NES, SNES, and
-                          Sega Genesis.
-                        </p>
-                        <button className="cta-button">Sign Up</button>
-                      </div>
-                    </div>
-                  </Col>
-                </Row>
-                <div className="text-center mt-4">
-                  <a href="#" className="btn btn-primary">
-                    View All Gaming Events
-                  </a>
-                </div>
-              </div>
+                      </Accordion.Body>
+                    </Accordion.Item>
+                  ))}
+                </Accordion>
+              )}
 
               <div className="download-links mt-4">
                 <a href="#" className="btn btn-primary me-3">
@@ -210,6 +90,49 @@ export function InfoPage() {
                 </a>
                 <a href="#" className="btn btn-outline-primary">
                   Subscribe to Calendar
+                </a>
+              </div>
+            </div>
+          </Tab>
+
+          {/* GAMING SECTION */}
+          <Tab eventKey="gaming" title="Gaming">
+            <div className="tab-content-wrapper">
+              <h2 className="mb-4">Gaming Zone</h2>
+              <Row>
+                <Col lg={4} md={12} className="mb-4 mb-lg-0">
+                  <img
+                    src={gamingContent.image}
+                    alt="Gaming Zone"
+                    className="img-fluid rounded"
+                  />
+                </Col>
+                <Col lg={8} md={12}>
+                  <p>{gamingContent.description}</p>
+                  <h4 className="mt-4 mb-3">Tournament Schedule</h4>
+                  <div className="tournament-list">
+                    {gamingContent.tournaments &&
+                      gamingContent.tournaments.map((t, i) => (
+                        <div className="tournament-item" key={i}>
+                          <div className="d-flex justify-content-between align-items-center mb-2">
+                            <h5 className="mb-0">{t.title}</h5>
+                            <span className="tournament-badge price-pill">
+                              {t.time}
+                            </span>
+                          </div>
+                          <p className="mb-2">{t.details}</p>
+                          <button className="cta-button">Sign Up</button>
+                        </div>
+                      ))}
+                  </div>
+                </Col>
+              </Row>
+              <div className="text-center mt-4">
+                <a
+                  href={gamingContent.cta?.link || "#"}
+                  className="btn btn-primary"
+                >
+                  {gamingContent.cta?.text || "View All Gaming Events"}
                 </a>
               </div>
             </div>
@@ -225,7 +148,10 @@ export function InfoPage() {
                   <div className="trade-hall-image mb-4">
                     {/* Replace with your actual trade hall image */}
                     <img
-                      src="/api/placeholder/600/400"
+                      src={
+                        content?.tradehall?.image ||
+                        "/api/placeholder/600/400?text=Trade Hall Map"
+                      }
                       alt="Trade Hall Map"
                       className="img-fluid rounded"
                     />
@@ -235,23 +161,18 @@ export function InfoPage() {
                   <div className="trade-hall-details">
                     <h3>Hours of Operation</h3>
                     <ul className="list-unstyled">
-                      <li>
-                        <strong>Friday:</strong> 10:00 AM - 7:00 PM
-                      </li>
-                      <li>
-                        <strong>Saturday:</strong> 9:30 AM - 8:00 PM
-                      </li>
-                      <li>
-                        <strong>Sunday:</strong> 10:00 AM - 5:00 PM
-                      </li>
+                      {content?.tradehall?.hours &&
+                        content.tradehall.hours.map((hour, idx) => (
+                          <li key={idx}>
+                            <strong>{hour.day}:</strong> {hour.time}
+                          </li>
+                        ))}
                     </ul>
 
                     <h3 className="mt-4">About the Trade Hall</h3>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nulla quam velit, vulputate eu pharetra nec, mattis ac
-                      neque. Duis vulputate commodo lectus, ac blandit elit
-                      tincidunt id. Sed rhoncus, tortor sed eleifend tristique.
+                      {content?.tradehall?.about ||
+                        "The Trade Hall features a variety of vendors offering merchandise, collectibles, and artwork. Check out our featured vendors below!"}
                     </p>
                   </div>
                 </Col>
@@ -259,38 +180,23 @@ export function InfoPage() {
 
               <h3 className="mb-3">Featured Vendors</h3>
               <Row className="mb-4 g-4">
-                {/* Replace with actual vendor information */}
-                {[1, 2, 3, 4].map((item) => (
-                  <Col md={6} lg={3} key={item}>
+                {vendorsContent.map((vendor, idx) => (
+                  <Col md={6} lg={3} key={idx}>
                     <Card className="h-100 vendor-card">
                       <Card.Img
                         variant="top"
-                        src={`/api/placeholder/300/200?text=Vendor ${item}`}
+                        src={vendor.image}
+                        alt={vendor.name}
                       />
                       <Card.Body>
-                        <Card.Title>Vendor Name {item}</Card.Title>
-                        <Card.Text>Booth #{item * 10}</Card.Text>
-                        <Card.Text>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Products include merchandise, collectibles, and
-                          artwork.
-                        </Card.Text>
+                        <Card.Title>{vendor.name}</Card.Title>
+                        <Card.Text>Booth #{vendor.booth}</Card.Text>
+                        <Card.Text>{vendor.description}</Card.Text>
                       </Card.Body>
                     </Card>
                   </Col>
                 ))}
               </Row>
-
-              <div className="vendor-info mt-4">
-                <h3>Vendor Rules & Guidelines</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                  quam velit, vulputate eu pharetra nec, mattis ac neque. Duis
-                  vulputate commodo lectus, ac blandit elit tincidunt id. Sed
-                  rhoncus, tortor sed eleifend tristique, tortor mauris molestie
-                  elit.
-                </p>
-              </div>
             </div>
           </Tab>
 
@@ -301,85 +207,25 @@ export function InfoPage() {
 
               <div className="map-selector mb-4">
                 <Tabs
-                  defaultActiveKey="overall"
+                  defaultActiveKey={mapsContent[0]?.tab || "overall"}
                   id="map-tabs"
                   className="mb-3 map-nav-tabs"
                 >
-                  <Tab eventKey="overall" title="Overall Venue">
-                    <div className="map-container">
-                      {/* Replace with your actual venue map */}
-                      <img
-                        src="/api/placeholder/1000/600?text=Overall Venue Map"
-                        alt="Overall Venue Map"
-                        className="img-fluid rounded"
-                      />
-                    </div>
-                    <div className="map-info mt-3">
-                      <h4>Venue Overview</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        The venue spans across three main buildings with
-                        multiple floors. Use this map to navigate between
-                        different zones and find key locations.
-                      </p>
-                    </div>
-                  </Tab>
-                  <Tab eventKey="mainhall" title="Main Hall">
-                    <div className="map-container">
-                      {/* Replace with your actual main hall map */}
-                      <img
-                        src="/api/placeholder/1000/600?text=Main Hall Map"
-                        alt="Main Hall Map"
-                        className="img-fluid rounded"
-                      />
-                    </div>
-                    <div className="map-info mt-3">
-                      <h4>Main Hall Features</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        The Main Hall houses the primary stage, seating areas,
-                        and main exhibition space. This is where opening and
-                        closing ceremonies will take place.
-                      </p>
-                    </div>
-                  </Tab>
-                  <Tab eventKey="panels" title="Panel Rooms">
-                    <div className="map-container">
-                      {/* Replace with your actual panel rooms map */}
-                      <img
-                        src="/api/placeholder/1000/600?text=Panel Rooms Map"
-                        alt="Panel Rooms Map"
-                        className="img-fluid rounded"
-                      />
-                    </div>
-                    <div className="map-info mt-3">
-                      <h4>Panel & Workshop Rooms</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Panel rooms are located on the second floor. Each room
-                        is equipped with audio-visual equipment and seating for
-                        attendees.
-                      </p>
-                    </div>
-                  </Tab>
-                  <Tab eventKey="facilities" title="Facilities">
-                    <div className="map-container">
-                      {/* Replace with your actual facilities map */}
-                      <img
-                        src="/api/placeholder/1000/600?text=Facilities Map"
-                        alt="Facilities Map"
-                        className="img-fluid rounded"
-                      />
-                    </div>
-                    <div className="map-info mt-3">
-                      <h4>Facilities & Services</h4>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Find restrooms, first aid stations, information booths,
-                        food courts, and rest areas marked on this map.
-                      </p>
-                    </div>
-                  </Tab>
+                  {mapsContent.map((map, idx) => (
+                    <Tab eventKey={map.tab} title={map.title} key={map.tab}>
+                      <div className="map-container">
+                        <img
+                          src={map.image}
+                          alt={map.title}
+                          className="img-fluid rounded"
+                        />
+                      </div>
+                      <div className="map-info mt-3">
+                        <h4>{map.title}</h4>
+                        <p>{map.description}</p>
+                      </div>
+                    </Tab>
+                  ))}
                 </Tabs>
               </div>
 
@@ -387,48 +233,45 @@ export function InfoPage() {
                 <Col md={6}>
                   <div className="location-info">
                     <h3>Getting to the Venue</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      The venue is located in downtown and is accessible via
-                      public transportation. Several parking options are
-                      available nearby.
-                    </p>
+                    <p>{content?.location?.description || ""}</p>
 
                     <h4 className="mt-4">Public Transportation</h4>
                     <ul>
-                      <li>Bus Routes: #42, #56, #78</li>
-                      <li>Subway: Central Station (Blue Line)</li>
-                      <li>Light Rail: Convention Center Stop</li>
+                      {content?.location?.public_transport?.map((item, idx) => (
+                        <li key={idx}>{item}</li>
+                      ))}
                     </ul>
 
                     <h4 className="mt-4">Parking Information</h4>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Parking is available in the Convention Center Garage for
-                      $15 per day. Additional parking can be found at
-                      neighboring garages.
-                    </p>
+                    <p>{content?.location?.parking || ""}</p>
                   </div>
                 </Col>
                 <Col md={6}>
                   <div className="location-map">
-                    {/* Replace with actual location map or embed Google Maps */}
                     <img
-                      src="/api/placeholder/600/400?text=Location Map"
+                      src={
+                        mapsContent.find((m) => m.tab === "location")?.image ||
+                        ""
+                      }
                       alt="Venue Location"
                       className="img-fluid rounded"
                     />
                   </div>
                 </Col>
               </Row>
-
+              {/* Download Links */}
               <div className="download-links mt-4">
-                <a href="#" className="btn btn-primary me-3">
-                  Download All Maps (PDF)
-                </a>
-                <a href="#" className="btn btn-outline-primary">
-                  Accessibility Guide
-                </a>
+                {downloadsContent.map((dl, idx) => (
+                  <a
+                    href={dl.link}
+                    className={`btn ${
+                      idx === 0 ? "btn-primary me-3" : "btn-outline-primary"
+                    }`}
+                    key={idx}
+                  >
+                    {dl.text}
+                  </a>
+                ))}
               </div>
             </div>
           </Tab>

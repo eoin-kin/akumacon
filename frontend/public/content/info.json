@@ -148,16 +148,19 @@
       "tab": "location",
       "title": "Venue Location",
       "image": "/api/placeholder/600/400?text=Location Map",
-      "description": "The venue is located in downtown and is accessible via public transportation. Several parking options are available nearby."
+      "description": "The venue is located in downtown and is accessible via public transportation. Several parking options are available nearby.",
+      "public_transport": [
+        "Bus Routes: #42, #56, #78",
+        "Subway: Central Station (Blue Line)",
+        "Light Rail: Convention Center Stop"
+      ],
+      "parking": "Parking is available in the Convention Center Garage for $15 per day. Additional parking can be found at neighboring garages."
     }
   ],
   "downloads": [
     { "text": "Download Full Schedule (PDF)", "link": "#" },
-    { "text": "Subscribe to Calendar", "link": "#" },
     { "text": "Download All Maps (PDF)", "link": "#" },
-    { "text": "Accessibility Guide", "link": "#" },
-    { "text": "Download Cosplay Guidelines (PDF)", "link": "#" },
-    { "text": "Contest Registration Form", "link": "#" }
+    { "text": "Accessibility Guide", "link": "#" }
   ],
   "cosplay": {
     "contest": {
@@ -249,5 +252,14 @@
         "alt": "Cosplay Gallery 6"
       }
     ]
+  },
+  "tradehall": {
+    "image": "/api/placeholder/600/400",
+    "hours": [
+      { "day": "Friday", "time": "10:00 AM - 7:00 PM" },
+      { "day": "Saturday", "time": "9:30 AM - 8:00 PM" },
+      { "day": "Sunday", "time": "10:00 AM - 5:00 PM" }
+    ],
+    "about": "The Trade Hall features a variety of vendors offering merchandise, collectibles, and artwork. Check out our featured vendors below!"
   }
 }

@@ -268,6 +268,27 @@ collections:
                   },
                 ],
             }
+          - {
+              label: "Trade Hall",
+              name: "tradehall",
+              widget: "object",
+              fields:
+                [
+                  { label: "Image", name: "image", widget: "string" },
+                  {
+                    label: "Hours",
+                    name: "hours",
+                    widget: "list",
+                    fields:
+                      [
+                        { label: "Day", name: "day", widget: "string" },
+                        { label: "Time", name: "time", widget: "string" },
+                      ],
+                  },
+                  { label: "About", name: "about", widget: "text" },
+                  { label: "Rules", name: "rules", widget: "text" },
+                ],
+            }
   - name: "more"
     label: "More"
     files:
@@ -391,5 +412,21 @@ collections:
                         { label: "Url", name: "url", widget: "string" },
                       ],
                   },
+                ],
+            }
+          - {
+              label: "Location",
+              name: "location",
+              widget: "object",
+              fields:
+                [
+                  { label: "Description", name: "description", widget: "text" },
+                  {
+                    label: "Public Transport",
+                    name: "public_transport",
+                    widget: "list",
+                    field: { label: "Item", name: "item", widget: "string" },
+                  },
+                  { label: "Parking", name: "parking", widget: "text" },
                 ],
             }
