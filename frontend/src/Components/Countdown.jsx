@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function Countdown() {
+export function Countdown({ startDate = "February 13, 2026" }) {
   const [countdown, setCountdown] = useState({
     days: 0,
     hours: 0,
@@ -18,7 +18,7 @@ export function Countdown() {
     window.addEventListener("resize", checkMobile); // Listen for window resize
 
     const calculateTimeLeft = () => {
-      const eventDate = new Date("February 13, 2026");
+      const eventDate = new Date(startDate);
       const difference = eventDate.getTime() - new Date().getTime();
 
       if (difference > 0) {
@@ -38,16 +38,21 @@ export function Countdown() {
       clearInterval(timer);
       window.removeEventListener("resize", checkMobile);
     };
-  }, []);
+  }, [startDate]);
 
   return (
-    <section className="bg-secondary-custom text-center py-5">
+    <section
+      className=" text-center py-5"
+      style={{
+        background: "linear-gradient(var(--secondary),80%, var(--primary))",
+      }}
+    >
       <div className="container">
         <h2 className="fs-2 fw-bold mb-4" style={{ color: "var(--highlight)" }}>
           COUNTDOWN TO AKUMAKON 2026
         </h2>
         <p className="fs-2 mb-4 fw-bold" style={{ color: "var(--highlight)" }}>
-          February 13-15, 2026
+          {startDate}
         </p>
         <div className="d-flex justify-content-between mx-5 flex-wrap gap-4">
           <div>

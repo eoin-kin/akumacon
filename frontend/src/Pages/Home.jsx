@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import Navigation from "../Components/Navigation.jsx";
 import { Countdown } from "../Components/Countdown.jsx";
 import { Button } from "react-bootstrap";
-import InfoSlider from "../Components/InfoSlider.jsx";
 import { useContent } from "../hooks/useContent.js";
 
 export function Home() {
@@ -79,11 +78,12 @@ export function Home() {
           </Button>
         </div>
       </div>
-
+      {/* About Section */}
       <div
         className="container-fluid p-4"
         style={{
-          background: "linear-gradient(var(--secondary), var(--lowlight))",
+          background:
+            "linear-gradient(var(--secondary), var(--lowlight), var(--secondary))",
         }}
       >
         <div className="row">
@@ -119,8 +119,68 @@ export function Home() {
           </div>
         </div>
       </div>
-      <InfoSlider title="Galway Area Info" />
-      <Countdown />
+      <Countdown
+        startDate={content?.countdownStartDate || "February 13, 2026"}
+      />
+      {/* Charity Partners */}
+      <div
+        className="container-fluid py-4"
+        style={{ background: "var(--primary)" }}
+      >
+        <h2 className="text-center mb-4" style={{ color: "var(--highlight)" }}>
+          Our Charity Partners
+        </h2>
+        <div className="row justify-content-center align-items-stretch">
+          {content?.charityPartners?.map((partner, idx) => (
+            <div
+              className="col-12 col-md-4 d-flex flex-column align-items-center mb-4 mb-md-0"
+              key={idx}
+            >
+              <img
+                src={partner.image}
+                alt={partner.title}
+                className="rounded-circle shadow-lg mb-3"
+                style={{
+                  width: 160,
+                  height: 160,
+                  objectFit: "cover",
+                  border: "4px solid var(--highlight)",
+                }}
+              />
+              <h5 className="fw-bold" style={{ color: "var(--highlight)" }}>
+                {partner.title}
+              </h5>
+              <p className="text-center" style={{ color: "var(--highlight)" }}>
+                {partner.caption}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* Location */}
+      <div className="container my-5">
+        <div className="row align-items-center">
+          <div className="col-md-6 mb-4 mb-md-0">
+            <h2 className="mb-3">Location</h2>
+            <p>{content?.locationSection?.paragraph}</p>
+            <Button
+              variant="primary"
+              href={content?.locationSection?.buttonLink || "#"}
+              className="mt-2"
+            >
+              {content?.locationSection?.buttonText || "Learn More"}
+            </Button>
+          </div>
+          <div className="col-md-6 d-flex justify-content-center">
+            <img
+              src={content?.locationSection?.image}
+              alt="Location"
+              className="img-fluid rounded-3 shadow-lg"
+              style={{ maxHeight: 300, objectFit: "cover" }}
+            />
+          </div>
+        </div>
+      </div>
     </>
   );
 }

@@ -63,6 +63,42 @@ collections:
                   },
                 ],
             }
+          - {
+              label: "Charity Partners",
+              name: "charityPartners",
+              widget: "list",
+              fields:
+                [
+                  { label: "Image", name: "image", widget: "string" },
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Caption", name: "caption", widget: "text" },
+                ],
+            }
+          - {
+              label: "Location Section",
+              name: "locationSection",
+              widget: "object",
+              fields:
+                [
+                  { label: "Paragraph", name: "paragraph", widget: "text" },
+                  { label: "Image", name: "image", widget: "string" },
+                  {
+                    label: "Button Text",
+                    name: "buttonText",
+                    widget: "string",
+                  },
+                  {
+                    label: "Button Link",
+                    name: "buttonLink",
+                    widget: "string",
+                  },
+                ],
+            }
+          - {
+              label: "Countdown Start Date",
+              name: "countdownStartDate",
+              widget: "string",
+            }
   - name: "info"
     label: "Info"
     files:
