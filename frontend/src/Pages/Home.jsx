@@ -7,7 +7,7 @@ import InfoSlider from "../Components/InfoSlider.jsx";
 import { useContent } from "../hooks/useContent.js";
 
 export function Home() {
-  const { content, loading, error } = useContent();
+  const { content, loading, error } = useContent("content/home.json");
   const navigate = useNavigate();
 
   if (loading) {
