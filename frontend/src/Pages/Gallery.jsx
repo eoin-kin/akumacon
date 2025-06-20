@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "../Components/Navigation";
 import { Container, Tabs, Tab } from "react-bootstrap";
+import Bottom from "../Components/Bottom.jsx";
 
 const Gallery = () => {
   const years = ["2018", "2019", "2020", "2023", "2024", "2025"];
@@ -50,6 +51,7 @@ const Gallery = () => {
           ))}
         </Tabs>
       </Container>
+      <Bottom />
     </div>
   );
 };

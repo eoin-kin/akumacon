@@ -4,6 +4,7 @@ import {
   GuestProfile,
   GuestsProfileReversed,
 } from "../Components/GuestProfile.jsx";
+import Bottom from "../Components/Bottom.jsx";
 
 export function Guests() {
   const supereyepatchwolf = {
@@ -40,6 +41,7 @@ export function Guests() {
           url={supereyepatchwolf.url}
         />
       </Container>
+      <Bottom />
     </>
   );
 }

@@ -4,6 +4,7 @@ import Navigation from "../Components/Navigation.jsx";
 import { Countdown } from "../Components/Countdown.jsx";
 import { Button } from "react-bootstrap";
 import { useContent } from "../hooks/useContent.js";
+import { Bottom } from "../Components/Bottom.jsx";
 
 export function Home() {
   const { content, loading, error } = useContent("content/home.json");
@@ -158,11 +159,19 @@ export function Home() {
         </div>
       </div>
       {/* Location */}
-      <div className="container my-5">
-        <div className="row align-items-center">
+      <div
+        className="container my-5 p-5 rounded-3"
+        style={{ background: "var(--lowlight)" }}
+      >
+        <div
+          className="row align-items-center"
+          style={{ color: "var(--highlight)" }}
+        >
           <div className="col-md-6 mb-4 mb-md-0">
-            <h2 className="mb-3">Location</h2>
-            <p>{content?.locationSection?.paragraph}</p>
+            <h2 className="mb-3 fw-bold">Location</h2>
+            <p className="fs-4 fw-bold">
+              {content?.locationSection?.paragraph}
+            </p>
             <Button
               variant="primary"
               href={content?.locationSection?.buttonLink || "#"}
@@ -181,6 +190,46 @@ export function Home() {
           </div>
         </div>
       </div>
+      {/* Updates Section */}
+      <div className="container my-5">
+        <h2 className="text-center mb-4">Updates</h2>
+        <div className="row g-4">
+          {content?.updates?.map((update, idx) => (
+            <div
+              className="col-12 col-md-4 d-flex align-items-stretch"
+              key={idx}
+            >
+              <div
+                className="card w-100 shadow-lg h-100"
+                style={{ background: "var(--secondary)" }}
+              >
+                <img
+                  src={update.image}
+                  alt={update.title}
+                  className="card-img-top"
+                  style={{ objectFit: "cover", height: 200 }}
+                />
+                <div
+                  className="card-body d-flex flex-column"
+                  style={{ color: "var(--highlight)" }}
+                >
+                  <h5 className="card-title">{update.title}</h5>
+                  <p className="card-text">{update.caption}</p>
+                  {update.buttonText && update.buttonLink && (
+                    <a
+                      href={update.buttonLink}
+                      className="btn btn-primary mt-auto"
+                    >
+                      {update.buttonText}
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <Bottom />
     </>
   );
 }

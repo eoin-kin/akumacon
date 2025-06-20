@@ -35,5 +35,21 @@
     "buttonText": "Open in Maps",
     "buttonLink": "https://maps.app.goo.gl/AMn9WuK7xn6KmFSd6"
   },
-  "countdownStartDate": "February 13, 2026"
+  "countdownStartDate": "February 13, 2026",
+  "updates": [
+    {
+      "image": "/images/update1.jpg",
+      "title": "Update Title 1",
+      "caption": "This is a short update caption.",
+      "buttonText": "Learn More",
+      "buttonLink": "#"
+    },
+    {
+      "image": "/images/update2.jpg",
+      "title": "Update Title 2",
+      "caption": "Another update caption.",
+      "buttonText": "",
+      "buttonLink": ""
+    }
+  ]
 }

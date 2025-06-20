@@ -11,6 +11,7 @@ import {
 } from "react-bootstrap";
 import "./InfoPage.css";
 import Navigation from "../Components/Navigation";
+import Bottom from "../Components/Bottom.jsx";
 import { useContent } from "../hooks/useContent.js";
 
 export function InfoPage() {
@@ -319,6 +320,7 @@ export function InfoPage() {
           </Tab>
         </Tabs>
       </Container>
+      <Bottom />
     </>
   );
 }

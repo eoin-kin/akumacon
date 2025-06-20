@@ -99,6 +99,29 @@ collections:
               name: "countdownStartDate",
               widget: "string",
             }
+          - {
+              label: "Updates",
+              name: "updates",
+              widget: "list",
+              fields:
+                [
+                  { label: "Image", name: "image", widget: "string" },
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Caption", name: "caption", widget: "text" },
+                  {
+                    label: "Button Text",
+                    name: "buttonText",
+                    widget: "string",
+                    required: false,
+                  },
+                  {
+                    label: "Button Link",
+                    name: "buttonLink",
+                    widget: "string",
+                    required: false,
+                  },
+                ],
+            }
   - name: "info"
     label: "Info"
     files:

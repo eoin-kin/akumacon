@@ -1,4 +1,5 @@
 import Navigation from "../Components/Navigation.jsx";
+import Bottom from "../Components/Bottom.jsx";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import React, { useState } from "react";
 
@@ -268,6 +269,7 @@ export function TicketSelection() {
         </div>
       </Container>
       <br />
+      <Bottom />
     </>
   );
 }

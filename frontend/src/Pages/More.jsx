@@ -10,6 +10,7 @@ import {
   Image,
 } from "react-bootstrap";
 import Navigation from "../Components/Navigation";
+import Bottom from "../Components/Bottom.jsx";
 
 // Edit to update FAQ
 const faqData = [
@@ -411,6 +412,7 @@ function More() {
           </Card>
         </section>
       </Container>
+      <Bottom />
     </div>
   );
 }

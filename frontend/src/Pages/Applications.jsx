@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import Navigation from "../Components/Navigation";
+import Bottom from "../Components/Bottom.jsx";
 
 const Applications = () => {
   const applicationSections = [
@@ -100,6 +101,7 @@ const Applications = () => {
           </Row>
         </Container>
       </Container>
+      <Bottom />
     </>
   );
 };
