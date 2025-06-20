@@ -8,7 +8,7 @@ export function Navigation() {
     <Navbar expand="lg" className="custom-navbar">
       <Container>
         <Navbar.Brand href="/" className="text-light">
-          <img src="/Akumacon.png" alt="Akumacon" style={{ width: "10rem" }} />{" "}
+          <img src="/Akumacon.png" alt="Akumakon" style={{ width: "10rem" }} />{" "}
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"

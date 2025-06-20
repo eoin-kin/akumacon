@@ -18,7 +18,7 @@ export function Countdown() {
     window.addEventListener("resize", checkMobile); // Listen for window resize
 
     const calculateTimeLeft = () => {
-      const eventDate = new Date("March 20, 2026");
+      const eventDate = new Date("February 13, 2026");
       const difference = eventDate.getTime() - new Date().getTime();
 
       if (difference > 0) {
@@ -47,7 +47,7 @@ export function Countdown() {
           COUNTDOWN TO AKUMAKON 2026
         </h2>
         <p className="fs-2 mb-4 fw-bold" style={{ color: "var(--highlight)" }}>
-          March 20, 2026
+          February 13-15, 2026
         </p>
         <div className="d-flex justify-content-between mx-5 flex-wrap gap-4">
           <div>

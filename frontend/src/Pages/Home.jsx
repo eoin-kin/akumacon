@@ -68,7 +68,6 @@ export function Home() {
         </div>
       </div>
 
-      <Countdown />
       <div
         className="container-fluid p-4"
         style={{
@@ -108,7 +107,8 @@ export function Home() {
           </div>
         </div>
       </div>
-      <InfoSlider />
+      <InfoSlider title="Galway Area Info" />
+      <Countdown />
     </>
   );
 }
