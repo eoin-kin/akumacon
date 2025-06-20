@@ -148,15 +148,21 @@
       "tab": "location",
       "title": "Venue Location",
       "image": "/api/placeholder/600/400?text=Location Map",
-      "description": "The venue is located in downtown and is accessible via public transportation. Several parking options are available nearby.",
-      "public_transport": [
-        "Bus Routes: #42, #56, #78",
-        "Subway: Central Station (Blue Line)",
-        "Light Rail: Convention Center Stop"
-      ],
-      "parking": "Parking is available in the Convention Center Garage for $15 per day. Additional parking can be found at neighboring garages."
+      "description": "The venue is located in downtown and is accessible via public transportation. Several parking options are available nearby."
     }
   ],
+  "location": {
+    "description": "The venue is located in downtown and is accessible via public transportation. Several parking options are available nearby.",
+    "description_image": "/api/placeholder/600/400?text=Getting+to+the+Venue",
+    "public_transport": [
+      "Bus Routes: #42, #56, #78",
+      "Subway: Central Station (Blue Line)",
+      "Light Rail: Convention Center Stop"
+    ],
+    "public_transport_image": "/api/placeholder/600/400?text=Public+Transport",
+    "parking": "Parking is available in the Convention Center Garage for $15 per day. Additional parking can be found at neighboring garages.",
+    "parking_image": "/api/placeholder/600/400?text=Parking+Information"
+  },
   "downloads": [
     { "text": "Download Full Schedule (PDF)", "link": "#" },
     { "text": "Download All Maps (PDF)", "link": "#" },

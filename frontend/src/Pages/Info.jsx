@@ -284,161 +284,16 @@ export function InfoPage() {
               <Row className="mb-5">
                 <Col lg={7}>
                   <div className="cosplay-intro">
-                    <h3>Cosplay Contest</h3>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Our annual cosplay contest is one of the highlights of the
-                      event. Participants can compete in various categories and
-                      showcase their craftsmanship, performance, and creativity.
+                      So you're wondering about cosplay, eh? Fear not, I'm here
+                      to help! Without cosplay, we wouldn't be much of a
+                      convention! Checkout the cosplay events we will be having
+                      at Akumakon, they're up on our timetable. We will have a
+                      cosplay contest and there will be cash prizes! While we
+                      don't have any unreasonable rules about cosplay, we do
+                      have a list that you should check out before you decide on
+                      who to cosplay as. They're in the Rules section
                     </p>
-
-                    <h4 className="mt-4">Contest Categories</h4>
-                    <ul>
-                      <li>
-                        <strong>Master Division</strong> - For experienced
-                        cosplayers
-                      </li>
-                      <li>
-                        <strong>Journeyman Division</strong> - For intermediate
-                        cosplayers
-                      </li>
-                      <li>
-                        <strong>Novice Division</strong> - For beginners
-                      </li>
-                      <li>
-                        <strong>Youth Division</strong> - For cosplayers under
-                        16
-                      </li>
-                      <li>
-                        <strong>Group Category</strong> - For teams of 2 or more
-                        cosplayers
-                      </li>
-                    </ul>
-                  </div>
-                </Col>
-                <Col lg={5}>
-                  <div className="cosplay-image">
-                    {/* Replace with actual cosplay image */}
-                    <img
-                      src="/api/placeholder/500/400?text=Cosplay Contest"
-                      alt="Cosplay Contest"
-                      className="img-fluid rounded"
-                    />
-                  </div>
-                </Col>
-              </Row>
-
-              <div className="cosplay-rules mb-5">
-                <h3>Contest Rules & Guidelines</h3>
-                <Accordion>
-                  <Accordion.Item eventKey="0">
-                    <Accordion.Header>
-                      Registration & Eligibility
-                    </Accordion.Header>
-                    <Accordion.Body>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Participants must register at least 24 hours before the
-                        contest. All contestants must have valid event badges
-                        and follow safety guidelines. Pre-registration is
-                        available online until one week before the event.
-                      </p>
-                    </Accordion.Body>
-                  </Accordion.Item>
-                  <Accordion.Item eventKey="1">
-                    <Accordion.Header>Judging Criteria</Accordion.Header>
-                    <Accordion.Body>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Entries will be judged on the following criteria:
-                      </p>
-                      <ul>
-                        <li>
-                          <strong>Craftsmanship (40%)</strong> - Quality of
-                          construction, attention to detail, difficulty
-                        </li>
-                        <li>
-                          <strong>Accuracy (30%)</strong> - Resemblance to
-                          reference material
-                        </li>
-                        <li>
-                          <strong>Presentation (20%)</strong> - Stage presence,
-                          character portrayal
-                        </li>
-                        <li>
-                          <strong>Overall Impression (10%)</strong> - General
-                          impact and audience response
-                        </li>
-                      </ul>
-                    </Accordion.Body>
-                  </Accordion.Item>
-                  <Accordion.Item eventKey="2">
-                    <Accordion.Header>Props & Weapons Policy</Accordion.Header>
-                    <Accordion.Body>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        All props and weapons must be checked and approved at
-                        the weapons check station. Metal weapons, functional
-                        projectile weapons, and props that exceed 6 feet in any
-                        dimension are prohibited.
-                      </p>
-                    </Accordion.Body>
-                  </Accordion.Item>
-                </Accordion>
-              </div>
-
-              <Row className="mb-5">
-                <Col md={6}>
-                  <div className="cosplay-photo-area">
-                    <h3>Cosplay Photo Areas</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Several dedicated photo areas will be available throughout
-                      the venue with different themed backdrops and professional
-                      lighting.
-                    </p>
-                    <ul className="mt-3">
-                      <li>
-                        <strong>Main Hall Backdrop</strong> - Fantasy castle
-                        theme
-                      </li>
-                      <li>
-                        <strong>Garden Area</strong> - Natural setting with
-                        sakura decorations
-                      </li>
-                      <li>
-                        <strong>Sci-Fi Corner</strong> - Futuristic space
-                        station environment
-                      </li>
-                      <li>
-                        <strong>Urban Alley</strong> - City street scene with
-                        neon lights
-                      </li>
-                    </ul>
-                  </div>
-                </Col>
-                <Col md={6}>
-                  <div className="cosplay-repair">
-                    <h3>Cosplay Repair Station</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. A
-                      dedicated cosplay repair station will be available
-                      throughout the event. Staffed by volunteers, the station
-                      will have basic supplies for emergency repairs and
-                      touch-ups.
-                    </p>
-                    <div className="mt-3">
-                      <h5>Available Supplies:</h5>
-                      <p>
-                        Hot glue guns, safety pins, needle and thread, fabric
-                        tape, spirit gum, makeup supplies, and more.
-                      </p>
-
-                      <h5 className="mt-3">Location & Hours:</h5>
-                      <p>
-                        Second floor near Room 204. Open during all event hours.
-                      </p>
-                    </div>
                   </div>
                 </Col>
               </Row>
@@ -447,17 +302,18 @@ export function InfoPage() {
                 <h3 className="mb-4">Previous Years' Highlights</h3>
                 <Row className="g-4">
                   {/* Replace with actual cosplay images */}
-                  {[1, 2, 3, 4, 5, 6].map((item) => (
-                    <Col md={6} lg={4} key={item}>
-                      <div className="cosplay-gallery-item">
-                        <img
-                          src={`/api/placeholder/400/300?text=Cosplay ${item}`}
-                          alt={`Cosplay Gallery ${item}`}
-                          className="img-fluid rounded"
-                        />
-                      </div>
-                    </Col>
-                  ))}
+                  {cosplayContent.gallery &&
+                    cosplayContent.gallery.map((item, idx) => (
+                      <Col md={6} lg={4} key={idx}>
+                        <div className="cosplay-gallery-item">
+                          <img
+                            src={item.image}
+                            alt={item.alt}
+                            className="img-fluid rounded"
+                          />
+                        </div>
+                      </Col>
+                    ))}
                 </Row>
               </div>
 
