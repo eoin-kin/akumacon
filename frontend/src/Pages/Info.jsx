@@ -88,9 +88,6 @@ export function InfoPage() {
                 <a href="#" className="btn btn-primary me-3">
                   Download Full Schedule (PDF)
                 </a>
-                <a href="#" className="btn btn-outline-primary">
-                  Subscribe to Calendar
-                </a>
               </div>
             </div>
           </Tab>
@@ -109,7 +106,7 @@ export function InfoPage() {
                 </Col>
                 <Col lg={8} md={12}>
                   <p>{gamingContent.description}</p>
-                  <h4 className="mt-4 mb-3">Tournament Schedule</h4>
+                  <h4 className="mt-4 mb-3">Featured Events</h4>
                   <div className="tournament-list">
                     {gamingContent.tournaments &&
                       gamingContent.tournaments.map((t, i) => (
@@ -121,7 +118,6 @@ export function InfoPage() {
                             </span>
                           </div>
                           <p className="mb-2">{t.details}</p>
-                          <button className="cta-button">Sign Up</button>
                         </div>
                       ))}
                   </div>
@@ -285,14 +281,8 @@ export function InfoPage() {
                 <Col lg={7}>
                   <div className="cosplay-intro">
                     <p>
-                      So you're wondering about cosplay, eh? Fear not, I'm here
-                      to help! Without cosplay, we wouldn't be much of a
-                      convention! Checkout the cosplay events we will be having
-                      at Akumakon, they're up on our timetable. We will have a
-                      cosplay contest and there will be cash prizes! While we
-                      don't have any unreasonable rules about cosplay, we do
-                      have a list that you should check out before you decide on
-                      who to cosplay as. They're in the Rules section
+                      {cosplayContent.description ||
+                        "So you're wondering about cosplay, eh? Fear not, I'm here to help! Without cosplay, we wouldn't be much of a convention! Checkout the cosplay events we will be having at Akumakon, they're up on our timetable. We will have a cosplay contest and there will be cash prizes! While we don't have any unreasonable rules about cosplay, we do have a list that you should check out before you decide on who to cosplay as. They're in the Rules section"}
                     </p>
                   </div>
                 </Col>

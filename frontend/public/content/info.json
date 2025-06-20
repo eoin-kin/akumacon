@@ -169,69 +169,7 @@
     { "text": "Accessibility Guide", "link": "#" }
   ],
   "cosplay": {
-    "contest": {
-      "title": "Cosplay Contest",
-      "description": "Our annual cosplay contest is one of the highlights of the event. Participants can compete in various categories and showcase their craftsmanship, performance, and creativity.",
-      "categories": [
-        {
-          "name": "Master Division",
-          "description": "For experienced cosplayers"
-        },
-        {
-          "name": "Journeyman Division",
-          "description": "For intermediate cosplayers"
-        },
-        { "name": "Novice Division", "description": "For beginners" },
-        { "name": "Youth Division", "description": "For cosplayers under 16" },
-        {
-          "name": "Group Category",
-          "description": "For teams of 2 or more cosplayers"
-        }
-      ],
-      "image": "/api/placeholder/500/400?text=Cosplay Contest"
-    },
-    "rules": [
-      {
-        "title": "Registration & Eligibility",
-        "content": "Participants must register at least 24 hours before the contest. All contestants must have valid event badges and follow safety guidelines. Pre-registration is available online until one week before the event."
-      },
-      {
-        "title": "Judging Criteria",
-        "content": "Entries will be judged on the following criteria: Craftsmanship (40%), Accuracy (30%), Presentation (20%), Overall Impression (10%)."
-      },
-      {
-        "title": "Props & Weapons Policy",
-        "content": "All props and weapons must be checked and approved at the weapons check station. Metal weapons, functional projectile weapons, and props that exceed 6 feet in any dimension are prohibited."
-      }
-    ],
-    "photo_areas": [
-      { "name": "Main Hall Backdrop", "description": "Fantasy castle theme" },
-      {
-        "name": "Garden Area",
-        "description": "Natural setting with sakura decorations"
-      },
-      {
-        "name": "Sci-Fi Corner",
-        "description": "Futuristic space station environment"
-      },
-      {
-        "name": "Urban Alley",
-        "description": "City street scene with neon lights"
-      }
-    ],
-    "repair_station": {
-      "description": "A dedicated cosplay repair station will be available throughout the event. Staffed by volunteers, the station will have basic supplies for emergency repairs and touch-ups.",
-      "supplies": [
-        "Hot glue guns",
-        "safety pins",
-        "needle and thread",
-        "fabric tape",
-        "spirit gum",
-        "makeup supplies",
-        "and more"
-      ],
-      "location": "Second floor near Room 204. Open during all event hours."
-    },
+    "description": "So you're wondering about cosplay, eh? Fear not, I'm here to help! Without cosplay, we wouldn't be much of a convention! Checkout the cosplay events we will be having at Akumakon, they're up on our timetable. We will have a cosplay contest and there will be cash prizes! While we don't have any unreasonable rules about cosplay, we do have a list that you should check out before you decide on who to cosplay as. They're in the Rules section",
     "gallery": [
       {
         "image": "/api/placeholder/400/300?text=Cosplay 1",
