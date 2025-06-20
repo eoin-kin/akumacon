@@ -407,3 +407,20 @@ collections:
                   },
                 ],
             }
+  - name: "theme"
+    label: "Theme Colors"
+    files:
+      - label: "Theme Colors"
+        name: "theme"
+        file: "frontend/public/content/theme.json"
+        format: "json"
+        fields:
+          - { label: "Primary", name: "primary", widget: "color" }
+          - { label: "Secondary", name: "secondary", widget: "color" }
+          - { label: "Tertiary", name: "tertiary", widget: "color" }
+          - { label: "Highlight", name: "highlight", widget: "color" }
+          - { label: "Lowlight", name: "lowlight", widget: "color" }
+          - { label: "Shadow Color", name: "shadowColor", widget: "string" }
+          - { label: "CTA", name: "cta", widget: "color" }
+          - { label: "Dark", name: "dark", widget: "color" }
+          - { label: "Light", name: "light", widget: "color" }

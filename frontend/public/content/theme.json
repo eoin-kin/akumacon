@@ -1,0 +1,11 @@
+{
+  "primary": "#3b1a69",
+  "secondary": "#e7634c",
+  "tertiary": "#a9e29e",
+  "highlight": "#e9eceb",
+  "lowlight": "#eb9971",
+  "shadowColor": "rgba(0, 0, 0, 0.54)",
+  "cta": "#66cbe7",
+  "dark": "#3d2f26",
+  "light": "#e9eceb"
+}

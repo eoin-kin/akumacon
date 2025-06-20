@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navigation from "../Components/Navigation.jsx";
 import { Countdown } from "../Components/Countdown.jsx";
@@ -67,7 +67,30 @@ export function Home() {
         >
           <Button
             size="sm"
-            className="fw-bold border-0 px-5 py-1 gla responsive-ticket-button"
+            className="fw-bold border-0 gla"
+            style={{
+              backgroundColor: "var(--primary)",
+              borderRadius: "calc(0.5rem + 0.3vw)",
+              fontSize: "clamp(0.9rem, 1.2vw, 1.2rem)",
+              padding:
+                "clamp(0.4rem, 0.6vw, 0.8rem) clamp(0.8rem, 1vw, 1.5rem)",
+              position: "absolute",
+              bottom: "clamp(0.5rem, 2vw, 2rem)",
+              right: "clamp(1rem, 2vw, 2rem)",
+              width: "30vw",
+              textAlign: "center",
+              minWidth: "100px",
+              maxWidth: "300px",
+              maxHeight: "3rem",
+              minHeight: "1rem",
+              ...(window.innerWidth <= 576
+                ? {
+                    fontSize: "0.85rem",
+                    padding: "0.4rem 0.8rem",
+                    width: "auto",
+                  }
+                : {}),
+            }}
             onClick={handleTicketClick}
           >
             <span className="d-none d-sm-inline">
