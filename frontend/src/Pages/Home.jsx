@@ -1,12 +1,14 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Navigation from "../Components/Navigation.jsx";
 import { Countdown } from "../Components/Countdown.jsx";
 import { Button } from "react-bootstrap";
 import InfoSlider from "../Components/InfoSlider.jsx";
-import { useHomeContent } from "../hooks/useContent.js";
+import { useContent } from "../hooks/useContent.js";
 
 export function Home() {
-  const { content, loading, error } = useHomeContent();
+  const { content, loading, error } = useContent();
+  const navigate = useNavigate();
 
   if (loading) {
     return (
@@ -29,6 +31,16 @@ export function Home() {
   // Use content from CMS or fallback to defaults
   const heroContent = content?.hero || {};
   const aboutContent = content?.about || {};
+
+  const handleTicketClick = () => {
+    const ticketPath = heroContent.ticket_link || "/ticketselection";
+    navigate(ticketPath);
+  };
+
+  const handleInfoClick = () => {
+    const infoPath = aboutContent.info_button_link || "/info";
+    navigate(infoPath);
+  };
 
   return (
     <>
@@ -56,7 +68,7 @@ export function Home() {
           <Button
             size="sm"
             className="fw-bold border-0 px-5 py-1 gla responsive-ticket-button"
-            href={heroContent.ticket_link || "/ticketselection"}
+            onClick={handleTicketClick}
           >
             <span className="d-none d-sm-inline">
               {heroContent.ticket_text_desktop || "GET TICKETS"}
@@ -100,7 +112,7 @@ export function Home() {
             <Button
               size="lg"
               className="fw-bold border-0 px-5 py-1 gla w-50"
-              href={aboutContent.info_button_link || "/info"}
+              onClick={handleInfoClick}
             >
               {aboutContent.info_button_text || "Info"}
             </Button>
