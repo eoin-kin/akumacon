@@ -10,12 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@netlify/vite-plugin": "^2.3.1",
     "bootstrap": "^5.3.5",
     "decap-cms-app": "^3.6.4",
     "lucide-react": "^0.509.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "react-bootstrap": "^2.10.9",
+    "react-dom": "^18.2.0",
     "react-router-dom": "^7.5.0",
     "react-social-icons": "^6.24.0"
   },
