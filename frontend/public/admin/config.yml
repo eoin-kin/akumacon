@@ -11,7 +11,7 @@ collections:
     files:
       - label: "Home Content"
         name: "home"
-        file: "content/home.json"
+        file: "frontend/public/content/home.json"
         format: "json"
         fields:
           - {
@@ -68,7 +68,7 @@ collections:
     files:
       - label: "Info Content"
         name: "info"
-        file: "content/info.json"
+        file: "frontend/public/content/info.json"
         format: "json"
         fields:
           - {
@@ -273,7 +273,7 @@ collections:
     files:
       - label: "More Content"
         name: "more"
-        file: "content/more.json"
+        file: "frontend/public/content/more.json"
         format: "json"
         fields:
           - {
@@ -322,7 +322,7 @@ collections:
     files:
       - label: "Applications Content"
         name: "applications"
-        file: "content/applications.json"
+        file: "frontend/public/content/applications.json"
         format: "json"
         fields:
           - {
@@ -342,7 +342,7 @@ collections:
     files:
       - label: "Gallery Content"
         name: "gallery"
-        file: "content/gallery.json"
+        file: "frontend/public/content/gallery.json"
         format: "json"
         fields:
           - {
@@ -369,7 +369,7 @@ collections:
     files:
       - label: "Guests Content"
         name: "guests"
-        file: "content/guests.json"
+        file: "frontend/public/content/guests.json"
         format: "json"
         fields:
           - {
