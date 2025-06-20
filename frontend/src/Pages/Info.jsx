@@ -318,6 +318,61 @@ export function InfoPage() {
               </div>
             </div>
           </Tab>
+
+          {/* SPECIAL GUESTS SECTION */}
+          <Tab eventKey="specialguests" title="Special Guests">
+            <div
+              className="tab-content-wrapper"
+              style={{ background: "var(--secondary)" }}
+            >
+              <h2
+                className="mb-4 fw-bold"
+                style={{ color: "var(--highlight)" }}
+              >
+                Special Guests
+              </h2>
+              {content?.specialGuests && content.specialGuests.length > 0 ? (
+                <Row className="g-4">
+                  {content.specialGuests.map((guest, idx) => (
+                    <Col md={6} lg={4} key={idx}>
+                      <Card className="h-100 shadow rounded-lg">
+                        <Card.Img
+                          variant="top"
+                          src={guest.image}
+                          alt={guest.name}
+                          className="img-fluid"
+                          style={{ height: "250px", objectFit: "cover" }}
+                        />
+                        <Card.Body>
+                          <Card.Title className="fw-bolder">
+                            {guest.name}
+                          </Card.Title>
+                          <Card.Text>{guest.bio}</Card.Text>
+                          {guest.links && guest.links.length > 0 && (
+                            <div className="d-flex gap-2 flex-wrap mt-2">
+                              {guest.links.map((link, lidx) => (
+                                <a
+                                  key={lidx}
+                                  href={link.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="btn btn-outline-primary btn-sm"
+                                >
+                                  {link.type}
+                                </a>
+                              ))}
+                            </div>
+                          )}
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                  ))}
+                </Row>
+              ) : (
+                <p>No special guests announced yet. Check back soon!</p>
+              )}
+            </div>
+          </Tab>
         </Tabs>
       </Container>
       <Bottom />

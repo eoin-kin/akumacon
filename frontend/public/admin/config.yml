@@ -407,6 +407,27 @@ collections:
                   },
                 ],
             }
+          - {
+              label: "Special Guests",
+              name: "specialGuests",
+              widget: "list",
+              fields:
+                [
+                  { label: "Name", name: "name", widget: "string" },
+                  { label: "Bio", name: "bio", widget: "text" },
+                  { label: "Image", name: "image", widget: "string" },
+                  {
+                    label: "Links",
+                    name: "links",
+                    widget: "list",
+                    fields:
+                      [
+                        { label: "Type", name: "type", widget: "string" },
+                        { label: "Url", name: "url", widget: "string" },
+                      ],
+                  },
+                ],
+            }
   - name: "theme"
     label: "Theme Colors"
     files:

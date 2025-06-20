@@ -205,5 +205,28 @@
       { "day": "Sunday", "time": "10:00 AM - 5:00 PM" }
     ],
     "about": "The Trade Hall features a variety of vendors offering merchandise, collectibles, and artwork. Check out our featured vendors below!"
-  }
+  },
+  "specialGuests": [
+    {
+      "name": "Super Eyepatch Wolf",
+      "bio": "Super Eyepatch Wolf is an Irish YouTuber who does analytical-style videos on primarily anime, but occasionally manga and video games as well! You can find them on Twitch as supereyepatchwolf and YouTube as Super Eyepatch Wolf, and on Instagram as @super_eyepatch_wolf.",
+      "image": "/guest-images/supereyepatchwolf.jpeg",
+      "links": [
+        {
+          "type": "YouTube",
+          "url": "https://www.youtube.com/channel/UCtGoikgbxP4F3rgI9PldI9g"
+        },
+        {
+          "type": "Instagram",
+          "url": "https://instagram.com/super_eyepatch_wolf"
+        }
+      ]
+    },
+    {
+      "name": "Jane Doe",
+      "bio": "Jane Doe is a renowned manga artist and illustrator, known for her work on several best-selling series.",
+      "image": "/api/placeholder/400/300?text=Jane+Doe",
+      "links": [{ "type": "Twitter", "url": "https://twitter.com/janedoe" }]
+    }
+  ]
 }
