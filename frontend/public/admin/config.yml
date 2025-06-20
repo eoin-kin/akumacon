@@ -339,6 +339,7 @@ collections:
         file: "frontend/public/content/applications.json"
         format: "json"
         fields:
+          - { label: "Banner Image", name: "banner_image", widget: "image" }
           - {
               label: "Sections",
               name: "sections",

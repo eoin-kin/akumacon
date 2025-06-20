@@ -2,57 +2,57 @@ import React from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import Navigation from "../Components/Navigation";
 import Bottom from "../Components/Bottom.jsx";
+import { useContent } from "../hooks/useContent.js";
 
 const Applications = () => {
-  const applicationSections = [
-    {
-      title: "Cosplay Masquerade",
-      description:
-        "Show off your incredible cosplay skills and compete in our renowned masquerade event. Open to all skill levels with multiple categories available.",
-      image: "/images/cosplay-masquerade.jpg", // Update with your actual image path
-      formLink: "https://forms.google.com/cosplay-masquerade",
-    },
-    {
-      title: "Karaoke",
-      description:
-        "Take the stage and perform your favorite songs! Our karaoke event welcomes singers of all abilities to share their vocal talents with fellow fans.",
-      image: "/images/karaoke.jpg", // Update with your actual image path
-      formLink: "https://forms.google.com/karaoke",
-    },
-    {
-      title: "Volunteers",
-      description:
-        "Help make our event amazing by joining our volunteer team. Various positions available with perks including free admission depending on hours worked.",
-      image: "/images/volunteers.jpg", // Update with your actual image path
-      formLink: "https://forms.google.com/volunteers",
-    },
-    {
-      title: "Host a Panel",
-      description:
-        "Share your knowledge and passion by hosting a panel. We welcome topics on anime, manga, gaming, cosplay techniques, and more!",
-      image: "/images/host-panel.jpg", // Update with your actual image path
-      formLink: "https://forms.google.com/host-panel",
-    },
-    {
-      title: "Artist Alley",
-      description:
-        "Showcase and sell your artwork in our Artist Alley. Limited spaces available for artists of all styles to display their creative talents.",
-      image: "/images/artist-alley.jpg", // Update with your actual image path
-      formLink: "https://forms.google.com/artist-alley",
-    },
-    {
-      title: "Trader Hall",
-      description:
-        "Book a spot in our Trader Hall to sell merchandise, collectibles, and other fandom items to our attendees. Various booth sizes available.",
-      image: "/images/trader-hall.jpg", // Update with your actual image path
-      formLink: "https://forms.google.com/trader-hall",
-    },
-  ];
+  const { content, loading, error } = useContent("content/applications.json");
+  const applicationSections = content?.sections || [];
+  const bannerImage = content?.banner_image;
+
+  if (loading) {
+    return (
+      <>
+        <Navigation />
+        <div
+          className="d-flex justify-content-center align-items-center"
+          style={{ height: "50vh" }}
+        >
+          <div>Loading...</div>
+        </div>
+      </>
+    );
+  }
+  if (error) {
+    return (
+      <>
+        <Navigation />
+        <div
+          className="d-flex justify-content-center align-items-center"
+          style={{ height: "50vh" }}
+        >
+          <div>Error loading content.</div>
+        </div>
+      </>
+    );
+  }
 
   return (
     <>
       <Navigation />
-
+      {bannerImage && (
+        <div style={{ width: "100%", overflow: "hidden" }}>
+          <img
+            src={bannerImage}
+            alt="Applications Banner"
+            style={{
+              width: "100%",
+              maxHeight: 320,
+              objectFit: "cover",
+              display: "block",
+            }}
+          />
+        </div>
+      )}
       <Container fluid className="py-5 bg-highlight">
         <Container>
           <h1 className="text-center text-primary-custom mb-5">Applications</h1>
@@ -60,7 +60,6 @@ const Applications = () => {
             Interested in participating or contributing to our event? Check out
             these opportunities and apply today!
           </p>
-
           <Row xs={1} md={2} lg={3} className="g-4">
             {applicationSections.map((section, idx) => (
               <Col key={idx}>

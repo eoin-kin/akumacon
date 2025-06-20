@@ -1,40 +1,35 @@
 {
+  "banner_image": "/images/applications-banner.jpg",
   "sections": [
     {
       "title": "Cosplay Masquerade",
-      "description": "Show off your incredible cosplay skills and compete in our renowned masquerade event. Open to all skill levels with multiple categories available.",
+      "description": "Want to strut your stuff in your best cosplay? Sign-up to our cosplay masquerade in our Special Events Room.",
       "image": "/images/cosplay-masquerade.jpg",
       "formLink": "https://forms.google.com/cosplay-masquerade"
     },
     {
       "title": "Karaoke",
-      "description": "Take the stage and perform your favorite songs! Our karaoke event welcomes singers of all abilities to share their vocal talents with fellow fans.",
+      "description": "Sign up & Sing your heart away with some karaoke at Akumakon :)",
       "image": "/images/karaoke.jpg",
       "formLink": "https://forms.google.com/karaoke"
     },
     {
       "title": "Volunteers",
-      "description": "Help make our event amazing by joining our volunteer team. Various positions available with perks including free admission depending on hours worked.",
+      "description": "Want to help Akumakon be the very best? Like no con ever was? Then please fill out the form below! We wouldn't be able to run the event without you. While being a volunteer means helping out at the con, you'll of course have free entry and get free time to go explore Akumakon.\nIt's a win win.",
       "image": "/images/volunteers.jpg",
       "formLink": "https://forms.google.com/volunteers"
     },
     {
       "title": "Host a Panel",
-      "description": "Share your knowledge and passion by hosting a panel. We welcome topics on anime, manga, gaming, cosplay techniques, and more!",
+      "description": "Got a great idea for a panel? Want to host a panel in front of adoring fans? Let us know! We'll go through your proposal and get back to you as soon as possible.",
       "image": "/images/host-panel.jpg",
       "formLink": "https://forms.google.com/host-panel"
     },
     {
       "title": "Artist Alley",
-      "description": "Showcase and sell your artwork in our Artist Alley. Limited spaces available for artists of all styles to display their creative talents.",
+      "description": "Apply for a table in our Artist Alley & Galway Arist Alley to sell all of your hand drawn Bunny Girl Senpai posters... and other stuff too I guess.",
       "image": "/images/artist-alley.jpg",
       "formLink": "https://forms.google.com/artist-alley"
-    },
-    {
-      "title": "Trader Hall",
-      "description": "Book a spot in our Trader Hall to sell merchandise, collectibles, and other fandom items to our attendees. Various booth sizes available.",
-      "image": "/images/trader-hall.jpg",
-      "formLink": "https://forms.google.com/trader-hall"
     }
   ]
 }
