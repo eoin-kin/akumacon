@@ -76,7 +76,10 @@ const Applications = () => {
                       className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
                       style={{ background: "rgba(59, 26, 105, 0.6)" }}
                     >
-                      <h3 className="text-highlight text-shadow text-center px-2">
+                      <h3
+                        className=" text-shadow text-center px-2 fw-bold"
+                        style={{ color: "var(--dark)" }}
+                      >
                         {section.title}
                       </h3>
                     </div>

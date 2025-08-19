@@ -14,7 +14,7 @@ export function TicketSelection() {
   });
   const [totalPrice, setTotalPrice] = useState(0);
   const glassStyle = {
-    backgroundColor: "rgba(255, 255, 255, 0.65)",
+    backgroundColor: "rgba(255, 255, 255, 1)",
     backdropFilter: "blur(8px)",
     WebkitBackdropFilter: "blur(8px)",
     borderRadius: "8px",
