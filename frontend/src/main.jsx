@@ -9,6 +9,7 @@ import Applications from "./Pages/Applications.jsx";
 import Gallery from "./Pages/Gallery.jsx";
 import More from "./Pages/More.jsx";
 import { useContent } from "./hooks/useContent.js";
+import Checkout from "./Pages/Checkout.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
   { path: "/applications", element: <Applications /> },
   { path: "/gallery", element: <Gallery /> },
   { path: "/more", element: <More /> },
+  { path: "/checkout", element: <Checkout /> },
 ]);
 
 function ThemeProvider({ children }) {

@@ -2,6 +2,7 @@ import Navigation from "../Components/Navigation.jsx";
 import Bottom from "../Components/Bottom.jsx";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function TicketSelection() {
   const [validated, setValidated] = useState(false);
@@ -52,6 +53,7 @@ export function TicketSelection() {
 
     setTotalPrice(newTotal);
   };
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -60,11 +62,16 @@ export function TicketSelection() {
     if (form.checkValidity() === false) {
       event.stopPropagation();
     } else {
-      // Here you can process the form data
       console.log("Form submitted with ticket counts:", ticketCounts);
       console.log("Total price:", totalPrice);
 
-      // You would typically send this data to your backend here
+      // Redirect to checkout and pass state
+      navigate("/checkout", {
+        state: {
+          tickets: ticketCounts,
+          total: totalPrice,
+        },
+      });
     }
 
     setValidated(true);
