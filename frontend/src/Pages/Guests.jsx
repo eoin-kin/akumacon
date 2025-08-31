@@ -6,6 +6,8 @@ import {
 } from "../Components/GuestProfile.jsx";
 import Bottom from "../Components/Bottom.jsx";
 
+// Guests page component
+// Displays information about the guests attending the event
 export function Guests() {
   const supereyepatchwolf = {
     image: "/guest-images/supereyepatchwolf.jpeg",

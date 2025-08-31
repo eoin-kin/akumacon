@@ -4,9 +4,13 @@ import { Container, Tabs, Tab } from "react-bootstrap";
 import Bottom from "../Components/Bottom.jsx";
 import { useContent } from "../hooks/useContent.js";
 
+// Fixed years for the gallery, in descending order
 const FIXED_YEARS = ["2025", "2024", "2023", "2020", "2019", "2018"];
+// Days of the week for the gallery tabs
 const DAYS = ["Friday", "Saturday", "Sunday"];
 
+// Gallery page component
+// Displays a gallery of images or media related to the event
 const Gallery = () => {
   const { content, loading, error } = useContent("content/gallery.json");
   if (loading) {

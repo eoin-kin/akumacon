@@ -1,12 +1,25 @@
 import React from "react";
 import { Twitter, Facebook, Instagram, Mail } from "lucide-react";
 
+// Bottom component for the footer section of the website
+// Displays additional information or links at the bottom of the page
 export function Bottom({
   conBookLink = "https://www.akumakon.com/_files/ugd/aeafb7_f9cf85ce649d497683e3c4c99e26747d.pdf",
 }) {
   return (
-    <div className=" text-white py-3" style={{ background: "var(--primary)" }}>
-      <div className="container">
+    <div
+      className=" text-white py-3"
+      style={{
+        background: "var(--primary)",
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        width: "100%",
+        zIndex: 1000,
+      }}
+    >
+      <div className="container ">
         <div className="d-flex justify-content-between align-items-center">
           <a
             href={conBookLink}
@@ -36,6 +49,9 @@ export function Bottom({
           </div>
         </div>
       </div>
+      <footer>
+        <p className="mb-0">&copy; 2025 Akumakon. All rights reserved.</p>
+      </footer>
     </div>
   );
 }

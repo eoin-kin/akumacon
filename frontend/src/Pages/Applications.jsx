@@ -4,6 +4,8 @@ import Navigation from "../Components/Navigation";
 import Bottom from "../Components/Bottom.jsx";
 import { useContent } from "../hooks/useContent.js";
 
+// Applications page component
+// Displays information about applications for the event
 const Applications = () => {
   const { content, loading, error } = useContent("content/applications.json");
   const applicationSections = content?.sections || [];

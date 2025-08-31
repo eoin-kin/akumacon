@@ -15,7 +15,8 @@ import Navigation from "../Components/Navigation";
 import Bottom from "../Components/Bottom.jsx";
 import { useContent } from "../hooks/useContent.js";
 
-// Page component
+// More page component
+// Displays additional information or links related to the event
 function More() {
   const { content, loading, error } = useContent("content/more.json");
 

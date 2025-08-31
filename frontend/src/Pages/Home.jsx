@@ -6,6 +6,8 @@ import { Button } from "react-bootstrap";
 import { useContent } from "../hooks/useContent.js";
 import { Bottom } from "../Components/Bottom.jsx";
 
+// Home page component
+// Displays the main landing page for the event
 export function Home() {
   const { content, loading, error } = useContent("content/home.json");
   const navigate = useNavigate();

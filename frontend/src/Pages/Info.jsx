@@ -14,6 +14,8 @@ import Navigation from "../Components/Navigation";
 import Bottom from "../Components/Bottom.jsx";
 import { useContent } from "../hooks/useContent.js";
 
+// Info page component
+// Displays detailed information about the event
 export function InfoPage() {
   const { content, loading, error } = useContent("content/info.json");
 
@@ -35,7 +37,6 @@ export function InfoPage() {
     console.error("Content loading error:", error);
   }
 
-  const schedulesContent = content?.schedules || [];
   const gamingContent = content?.gaming || {};
   const vendorsContent = content?.vendors || [];
   const mapsContent = content?.maps || [];
@@ -45,6 +46,7 @@ export function InfoPage() {
     <>
       <Navigation />
       <Container className="info-page py-5">
+        {/* Page title */}
         <h1 className="text-center mb-5">Event Information</h1>
 
         {/* Main info tabs */}

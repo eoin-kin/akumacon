@@ -4,6 +4,8 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+// TicketSelection page component
+// Handles the ticket selection process for the event
 export function TicketSelection() {
   const [validated, setValidated] = useState(false);
   const [ticketCounts, setTicketCounts] = useState({
@@ -280,3 +282,5 @@ export function TicketSelection() {
     </>
   );
 }
+
+export default TicketSelection;

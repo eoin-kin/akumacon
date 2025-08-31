@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
+// Countdown component to display a timer for the event
+// Accepts props for the target date and updates the countdown dynamically
 export function Countdown({ startDate = "February 13, 2026" }) {
   const [countdown, setCountdown] = useState({
     days: 0,
@@ -108,3 +110,5 @@ export function Countdown({ startDate = "February 13, 2026" }) {
     </section>
   );
 }
+
+export default Countdown;
