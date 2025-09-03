@@ -1,11 +1,12 @@
 // netlify/functions/start-checkout.js
 const Stripe = require("stripe");
+const fetch = require("node-fetch"); // ADD THIS LINE - it was missing!
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async (event, context) => {
   try {
     // Parse the request body
-    const { cart, org, eventShortName, currency } = JSON.parse(event.body);
+    const { cart, org, eventShortName, currency, customerInfo } = JSON.parse(event.body);
 
     // Validate required data
     if (!cart || Object.keys(cart).length === 0) {
@@ -13,6 +14,23 @@ exports.handler = async (event, context) => {
     }
 
     // 1) Create reservation in alf.io
+    const reservationPayload = {
+      items: Object.entries(cart).map(([ticketType, quantity]) => ({
+        ticketType,
+        quantity,
+      })),
+    };
+
+    // Add customer info if provided
+    if (customerInfo) {
+      reservationPayload.contactData = {
+        firstName: customerInfo.firstName,
+        lastName: customerInfo.lastName,
+        email: customerInfo.email,
+        phoneNumber: customerInfo.phoneNumber,
+      };
+    }
+
     const alfioRes = await fetch(
       `${process.env.ALFIO_BASE_URL}/api/public/${
         org || process.env.ALFIO_ORG
@@ -25,13 +43,7 @@ exports.handler = async (event, context) => {
           "Content-Type": "application/json",
           "X-API-KEY": process.env.ALFIO_API_KEY,
         },
-        body: JSON.stringify({
-          items: Object.entries(cart).map(([ticketType, quantity]) => ({
-            ticketType,
-            quantity,
-          })),
-          // You can pass email/name here or collect later
-        }),
+        body: JSON.stringify(reservationPayload),
       }
     );
 
@@ -48,7 +60,7 @@ exports.handler = async (event, context) => {
       id: reservationId,
       totalAmount,
       currency: alfCurrency,
-    } = reservation; // adapt to alf.io response shape
+    } = reservation;
 
     // Validate totalAmount
     if (!totalAmount || totalAmount <= 0) {

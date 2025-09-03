@@ -5,12 +5,10 @@ import Bottom from "../Components/Bottom.jsx";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import PaymentForm from "../Components/PaymentForm"; // NEW component
+import PaymentForm from "../Components/PaymentForm";
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
-// Checkout page component
-// Handles the ticket checkout process, including payment integration
 const Checkout = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -18,6 +16,14 @@ const Checkout = () => {
   const [validated, setValidated] = useState(false);
   const [clientSecret, setClientSecret] = useState("");
   const [reservationId, setReservationId] = useState("");
+  
+  // Customer information state
+  const [customerInfo, setCustomerInfo] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+  });
 
   const ticketLabels = {
     over18Weekend: "Over 18s Weekend Pass",
@@ -27,28 +33,49 @@ const Checkout = () => {
     studentWeekend: "Student Weekend Pass",
   };
 
-  // 🔹 Call your Netlify function to create a PaymentIntent
-  useEffect(() => {
-    async function createPaymentIntent() {
-      try {
-        const response = await fetch("/.netlify/functions/start-checkout", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ cart: tickets, currency: "eur" }),
-        });
+  const handleCustomerInfoChange = (field, value) => {
+    setCustomerInfo(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
 
-        if (!response.ok) throw new Error("Failed to start checkout");
+  const createPaymentIntent = async () => {
+    try {
+      const response = await fetch("/.netlify/functions/start-checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ 
+          cart: tickets, 
+          currency: "eur",
+          customerInfo: customerInfo 
+        }),
+      });
 
-        const data = await response.json();
-        setClientSecret(data.clientSecret);
-        setReservationId(data.reservationId);
-      } catch (err) {
-        console.error("Checkout init error:", err);
-      }
+      if (!response.ok) throw new Error("Failed to start checkout");
+
+      const data = await response.json();
+      setClientSecret(data.clientSecret);
+      setReservationId(data.reservationId);
+    } catch (err) {
+      console.error("Checkout init error:", err);
+    }
+  };
+
+  // Only create payment intent when we have customer info
+  const handleProceedToPayment = (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    
+    if (form.checkValidity() === false) {
+      e.stopPropagation();
+      setValidated(true);
+      return;
     }
 
-    if (total > 0) createPaymentIntent();
-  }, [tickets, total]);
+    // Customer info is valid, create payment intent
+    createPaymentIntent();
+  };
 
   return (
     <>
@@ -97,94 +124,135 @@ const Checkout = () => {
               </Col>
             </Row>
 
-            {/* Contact Information */}
-            <Row className="mb-4">
-              <Col>
-                <h4 style={{ color: "var(--highlight)" }}>
-                  Contact Information
-                </h4>
-                <Row className="mb-3">
-                  <Col md={6}>
-                    <Form.Group>
-                      <Form.Label
-                        style={{ fontWeight: "bold", color: "white" }}
-                      >
-                        First Name
-                      </Form.Label>
-                      <Form.Control
-                        required
-                        type="text"
-                        placeholder="Enter first name"
-                      />
-                    </Form.Group>
-                  </Col>
-                  <Col md={6}>
-                    <Form.Group>
-                      <Form.Label
-                        style={{ fontWeight: "bold", color: "white" }}
-                      >
-                        Last Name
-                      </Form.Label>
-                      <Form.Control
-                        required
-                        type="text"
-                        placeholder="Enter last name"
-                      />
-                    </Form.Group>
+            {!clientSecret ? (
+              // Contact Information Form
+              <Form noValidate validated={validated} onSubmit={handleProceedToPayment}>
+                <Row className="mb-4">
+                  <Col>
+                    <h4 style={{ color: "var(--highlight)" }}>
+                      Contact Information
+                    </h4>
+                    <Row className="mb-3">
+                      <Col md={6}>
+                        <Form.Group>
+                          <Form.Label
+                            style={{ fontWeight: "bold", color: "white" }}
+                          >
+                            First Name
+                          </Form.Label>
+                          <Form.Control
+                            required
+                            type="text"
+                            placeholder="Enter first name"
+                            value={customerInfo.firstName}
+                            onChange={(e) => handleCustomerInfoChange('firstName', e.target.value)}
+                          />
+                          <Form.Control.Feedback type="invalid">
+                            Please provide a first name.
+                          </Form.Control.Feedback>
+                        </Form.Group>
+                      </Col>
+                      <Col md={6}>
+                        <Form.Group>
+                          <Form.Label
+                            style={{ fontWeight: "bold", color: "white" }}
+                          >
+                            Last Name
+                          </Form.Label>
+                          <Form.Control
+                            required
+                            type="text"
+                            placeholder="Enter last name"
+                            value={customerInfo.lastName}
+                            onChange={(e) => handleCustomerInfoChange('lastName', e.target.value)}
+                          />
+                          <Form.Control.Feedback type="invalid">
+                            Please provide a last name.
+                          </Form.Control.Feedback>
+                        </Form.Group>
+                      </Col>
+                    </Row>
+                    <Row className="mb-3">
+                      <Col md={6}>
+                        <Form.Group>
+                          <Form.Label
+                            style={{ fontWeight: "bold", color: "white" }}
+                          >
+                            Email Address
+                          </Form.Label>
+                          <Form.Control
+                            required
+                            type="email"
+                            placeholder="Enter email"
+                            value={customerInfo.email}
+                            onChange={(e) => handleCustomerInfoChange('email', e.target.value)}
+                          />
+                          <Form.Control.Feedback type="invalid">
+                            Please provide a valid email address.
+                          </Form.Control.Feedback>
+                        </Form.Group>
+                      </Col>
+                      <Col md={6}>
+                        <Form.Group>
+                          <Form.Label
+                            style={{ fontWeight: "bold", color: "white" }}
+                          >
+                            Phone Number
+                          </Form.Label>
+                          <Form.Control
+                            required
+                            type="tel"
+                            placeholder="Enter phone number"
+                            value={customerInfo.phoneNumber}
+                            onChange={(e) => handleCustomerInfoChange('phoneNumber', e.target.value)}
+                          />
+                          <Form.Control.Feedback type="invalid">
+                            Please provide a phone number.
+                          </Form.Control.Feedback>
+                        </Form.Group>
+                      </Col>
+                    </Row>
                   </Col>
                 </Row>
-                <Row className="mb-3">
-                  <Col md={6}>
-                    <Form.Group>
-                      <Form.Label
-                        style={{ fontWeight: "bold", color: "white" }}
-                      >
-                        Email Address
-                      </Form.Label>
-                      <Form.Control
-                        required
-                        type="email"
-                        placeholder="Enter email"
-                      />
-                    </Form.Group>
-                  </Col>
-                  <Col md={6}>
-                    <Form.Group>
-                      <Form.Label
-                        style={{ fontWeight: "bold", color: "white" }}
-                      >
-                        Phone Number
-                      </Form.Label>
-                      <Form.Control
-                        required
-                        type="tel"
-                        placeholder="Enter phone number"
-                      />
-                    </Form.Group>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
 
-            {/* Payment Form (Stripe Elements) */}
-            {clientSecret && (
-              <Elements stripe={stripePromise} options={{ clientSecret }}>
-                <PaymentForm reservationId={reservationId} />
-              </Elements>
+                <Row className="mt-4">
+                  <Col className="d-grid gap-2">
+                    <Button type="submit" size="lg">
+                      Proceed to Payment
+                    </Button>
+                    <Button
+                      variant="secondary"
+                      onClick={() => navigate("/ticketselection")}
+                      size="lg"
+                    >
+                      Back to Tickets
+                    </Button>
+                  </Col>
+                </Row>
+              </Form>
+            ) : (
+              // Payment Form (shown after customer info is collected)
+              <>
+                <Elements stripe={stripePromise} options={{ clientSecret }}>
+                  <PaymentForm reservationId={reservationId} />
+                </Elements>
+                
+                <Row className="mt-4">
+                  <Col className="d-grid gap-2">
+                    <Button
+                      variant="secondary"
+                      onClick={() => {
+                        setClientSecret("");
+                        setReservationId("");
+                      }}
+                      size="lg"
+                    >
+                      Edit Contact Information
+                    </Button>
+                  </Col>
+                </Row>
+              </>
             )}
-
-            {/* Navigation Buttons */}
-            <Row className="mt-4">
-              <Col className="d-grid gap-2">
-                <Button
-                  variant="secondary"
-                  onClick={() => navigate("/ticketselection")}
-                  size="lg"
-                >
-                  Back to Tickets
-                </Button>
-              </Col>
-            </Row>
           </Container>
         </div>
       </Container>
